@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { FaTimes, FaBars } from 'react-icons/fa'
+import { FaTimes, FaBars } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
 import { 
   Nav, 
   NavbarContainer, 
   NavLogo, 
   NavIcon, 
-  HamIcon 
+  MobileIcon,
+  NavMenu,
+  NavItem,
+  NavLinks
 } from './Navbar.elements';
 
 const Navbar = () => {
@@ -15,17 +19,33 @@ const Navbar = () => {
 
   return (
    <>
-    <Nav>
-      <NavbarContainer>
-        <NavLogo to='/'>
-          <NavIcon />
-          Front-End News
-        </NavLogo>
-        <HamIcon onClick={handleClick}>
-          {click ? <FaTimes /> : <FaBars />}
-        </HamIcon>
-      </NavbarContainer>
-    </Nav>
+    <IconContext.Provider value={{color: '#fff'}}>
+      <Nav>
+        <NavbarContainer>
+          <NavLogo to='/'>
+            <NavIcon />
+            Front-End News
+          </NavLogo>
+          <MobileIcon onClick={handleClick}>
+            {click ? <FaTimes /> : <FaBars />}
+          </MobileIcon>
+          <NavMenu onClick={handleClick} click={click}>
+            <NavItem>
+              <NavLinks to='/'>
+                Home
+              </NavLinks>
+            </NavItem>
+
+            <NavItem>
+              <NavLinks to='/'>
+                Saved
+              </NavLinks>
+            </NavItem>
+          </NavMenu>
+          
+        </NavbarContainer>
+      </Nav>
+    </IconContext.Provider>
    </>
   )
 }
