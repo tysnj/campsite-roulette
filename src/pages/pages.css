@@ -1,0 +1,25 @@
+.placeholderContainer {
+  padding: 20px 20px 60px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1px 5px;
+  justify-content: center;
+  align-content: center;
+}
+
+.placeholders {
+  box-sizing: border-box;
+  border: 1px solid #212047;
+  border-radius: 0px;
+  box-shadow:  5px 5px 10px #5E6E8C,
+              -5px -5px 10px #96B7E5;
+  transform: scale(.9);
+  width: 250px;
+  height: 300px;
+  background-color: #111623;
+  opacity: 10%;
+}
+
+.error {
+  
+}
