@@ -1,35 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import Error from './ErrorDisplay';
 
-function Home() {
+const Home = () => {
   const [stories, setStories] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     getStories()
-      .then(data => setStories(sortStories(data.hits)))
+      .then(data => setStories(...stories, sortStories(data.hits)))
       .catch(error => setError(error.message))
-  }, []);
+  }, [stories]);
 
-  const getStories = () => {
-    return fetch('GET', 'http://hn.algolia.com/api/v1/search?query=JavaScript&tags=story')
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          throw new Error(response)
-        }
-      })  
+  const getStories = async () => {
+    const subjects = ['JavaScript', 'Vue', 'Angular', 'React', 'HTML', 'CSS']
+    return subjects.map(subject => {
+      return fetch(`http://hn.algolia.com/api/v1/search_by_date?query=${subject}&tags=(story)`)
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          } else {
+            throw new Error(response)
+          }
+        })  
+    })
     };
 
   const sortStories = (stories) => {
-    let story = stories[0]
+    let story = stories
     console.log(story)
     return story
   }
 
   return (
     <>
-     Home 
+     Home
+     {error && <Error error={error}/>}
     </>
   )
 }
