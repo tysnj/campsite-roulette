@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Error from './ErrorDisplay';
+import { getStories, sortStories } from '../utilities';
 
 const Home = () => {
   const [stories, setStories] = useState([]);
   const [error, setError] = useState(null);
+  const getAllStories = useRef(() => {});
 
   useEffect(() => {
-     getAllStories()
-      .then(data => setStories(...stories, sortStories(data)))
+     getAllStories.current()
+      .then(data => setStories(sortStories(data)))
       .catch(error => setError(error.message))
-  }, [stories]);
+  }, []);
 
 
-  const getAllStories = async () => {
+  getAllStories.current = async () => {
     // requestURL + subject + attributes
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
-    let attributes = '&tags=(story)'
-    const subjects = ['JavaScript', 'Vue', 'Angular', 'React', 'HTML', 'CSS']
+    let attributes = '&tags=(story)&hitsPerPage=10'
+    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS']
     return await Promise.all(
       subjects.map(subject => getStories(requestURL + subject + attributes))
     )
   };
-
-  const getStories = async (url) => {
-    return await fetch(url).then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        throw new Error(response.message)
-      }
-    })
-  }
-
-
-  const sortStories = (stories) => {
-    let story = stories
-    console.log(story)
-    return story
-  }
 
   return (
     <>
