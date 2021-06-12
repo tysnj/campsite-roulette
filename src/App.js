@@ -2,7 +2,8 @@ import React from 'react';
 import GlobalStyle from './globalStyles'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Navbar, Footer } from './components';
-
+import Home from './pages/Home'
+import Saved from './pages/Saved'
 function App() {
   return (
     <Router>
