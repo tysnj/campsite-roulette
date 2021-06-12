@@ -37,7 +37,7 @@ const Navbar = () => {
             </NavItem>
 
             <NavItem>
-              <NavLinks to='/'>
+              <NavLinks to='/saved'>
                 Saved
               </NavLinks>
             </NavItem>
