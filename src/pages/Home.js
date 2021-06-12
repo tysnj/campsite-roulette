@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Error from './ErrorDisplay';
-import { getStories, sortStories } from '../utilities';
+import { getStories, cleanData } from '../utilities';
 
 const Home = () => {
   const [stories, setStories] = useState([]);
@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
      getAllStories.current()
-      .then(data => setStories(sortStories(data)))
+      .then(data => setStories(cleanData(data)))
       .catch(error => setError(error.message))
   }, []);
 
