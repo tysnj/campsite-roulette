@@ -6,24 +6,32 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getStories()
-      .then(data => setStories(...stories, sortStories(data.hits)))
+     getAllStories()
+      .then(data => setStories(...stories, sortStories(data)))
       .catch(error => setError(error.message))
   }, [stories]);
 
-  const getStories = async () => {
+
+  const getAllStories = async () => {
+    // requestURL + subject + attributes
+    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
+    let attributes = '&tags=(story)'
     const subjects = ['JavaScript', 'Vue', 'Angular', 'React', 'HTML', 'CSS']
-    return subjects.map(subject => {
-      return fetch(`http://hn.algolia.com/api/v1/search_by_date?query=${subject}&tags=(story)`)
-        .then(response => {
-          if (response.ok) {
-            return response.json()
-          } else {
-            throw new Error(response)
-          }
-        })  
+    return await Promise.all(
+      subjects.map(subject => getStories(requestURL + subject + attributes))
+    )
+  };
+
+  const getStories = async (url) => {
+    return await fetch(url).then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error(response.message)
+      }
     })
-    };
+  }
+
 
   const sortStories = (stories) => {
     let story = stories
