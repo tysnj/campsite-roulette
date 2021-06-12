@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+//import { Container } from '../../globalStyles';
+import { Container } from '../../globalStyles';
+
 import { 
   IoLogoReact,
   IoLogoVue
@@ -19,23 +22,36 @@ import {
 export const ArticleWrapper = styled.article`
   box-sizing: border-box;
   border: 1px solid #fff;
-  border-radius: 0px;
+  border-radius: 6px;
   box-shadow:  5px 5px 10px #5E6E8C,
               -5px -5px 10px #96B7E5;
   transform: scale(.9);
   width: 250px;
   height: 300px;
-  background-color: #111623;
-  /* opacity: 10%; */
+  text-align: center;
+  text-overflow: ellipsis;
 `;
 
-export const ArticleImage = styled.div`
+export const ArticleImage = styled(Container)`
   width: 100%;
   height:40%;
   background: #fff;
-  border: 2px solid #111623;
+  border: 2px solid #fff;
+  border-bottom: none;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
+`;
+
+export const ArticleHeadline = styled(Container)`
+  width: 100%;
+  height:60%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 1em 0.1em;
+  font-size:  1.5em;
+  font-weight: bolder;
 `;
 
 export const JS = styled(IoLogoJavascript)`
@@ -55,7 +71,8 @@ export const HTML = styled(IoLogoHtml5)`
 
 export const Sass = styled(IoLogoSass)`
   ${logo}
-  color: ##dd6699;
+  color: #dd6699;
+  /* background-color: #222222 */
 `;
 export const ReactLogo = styled(IoLogoReact)`
   ${logo}

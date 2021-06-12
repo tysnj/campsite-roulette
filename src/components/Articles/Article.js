@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { 
   ArticleWrapper, 
   ArticleImage,
+  ArticleHeadline,
   JS,
   ReactLogo,
   Sass,
@@ -12,9 +13,9 @@ import {
   CSS
 } from './Articles.elements';
 
-
 function Article(props) {
   const match = props.info._highlightResult.title.matchedWords[0] 
+  const headline = props.info.title 
   return (
     <ArticleWrapper >
      <ArticleImage match={match}>
@@ -26,6 +27,9 @@ function Article(props) {
       {match === 'react' && <ReactLogo/>}
       {match === 'vue' && <Vue/>}
      </ArticleImage> 
+     <ArticleHeadline>
+      {headline}
+     </ArticleHeadline>
     </ArticleWrapper>
   )
 }

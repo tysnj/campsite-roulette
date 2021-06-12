@@ -43,10 +43,10 @@ const cleanStories = (data) => {
     delete story.parent_id;
     delete story.created_at_i;
     delete story._tags;
-    delete story.title;
     delete story._highlightResult.author;
     delete story._highlightResult.url;
     delete story._highlightResult.title.matchLevel;
+    delete story._highlightResult.title.value;
     delete story._highlightResult.title.fullyHighlighted;
     cleanData.push(story)
   })
