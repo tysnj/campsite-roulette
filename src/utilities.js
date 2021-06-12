@@ -10,7 +10,15 @@ export const getStories = async (url) => {
 }
 
 export const cleanData = (data) => {
-  return sortStories(cleanStories(combineHits(data)))
+  return filterRelevant(sortStories(cleanStories(combineHits(data))))
+}
+
+const filterRelevant = (data) => {
+  return data.filter(story => {
+    if (story._highlightResult.title.matchedWords.length) {
+      return story
+    }
+  })
 }
 
 const sortStories = (data) => {
