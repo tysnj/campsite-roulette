@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { 
   ArticleWrapper, 
   ArticleImage,
+  ArticleCreated,
   ArticleHeadline,
   JS,
   ReactLogo,
@@ -15,7 +16,8 @@ import {
 
 function Article(props) {
   const match = props.info._highlightResult.title.matchedWords[0] 
-  const headline = props.info.title 
+  const headline = props.info.title
+  const createdDate = new Date(props.info.created_at).toLocaleDateString()
   return (
     <ArticleWrapper >
      <ArticleImage match={match}>
@@ -27,6 +29,9 @@ function Article(props) {
       {match === 'react' && <ReactLogo/>}
       {match === 'vue' && <Vue/>}
      </ArticleImage> 
+     <ArticleCreated>
+     <em>Posted on <strong>{createdDate}</strong></em>
+     </ArticleCreated>
      <ArticleHeadline>
       {headline}
      </ArticleHeadline>

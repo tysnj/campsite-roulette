@@ -30,7 +30,6 @@ const sortStories = (data) => {
 const cleanStories = (data) => {
   let cleanData = [];
   data.forEach(story => {
-    delete story.created_at;
     delete story.comment_text;
     delete story.author;
     delete story.points;

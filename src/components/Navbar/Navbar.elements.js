@@ -6,6 +6,7 @@ import { Container } from '../../globalStyles';
 export const Nav = styled.nav`
   background: #101522;
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

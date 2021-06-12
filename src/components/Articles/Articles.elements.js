@@ -29,29 +29,34 @@ export const ArticleWrapper = styled.article`
   width: 250px;
   height: 300px;
   text-align: center;
-  text-overflow: ellipsis;
 `;
 
 export const ArticleImage = styled(Container)`
   width: 100%;
   height:40%;
-  background: #fff;
+  /* background: #fff; */
   border: 2px solid #fff;
   border-bottom: none;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
 `;
+export const ArticleCreated = styled(Container)`
+  height: 10%;
+  width: 100%;
+  padding: 1em 0.1em;
+`;
 
 export const ArticleHeadline = styled(Container)`
-  width: 100%;
-  height:60%;
+  height:50%;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
   padding: 1em 0.1em;
   font-size:  1.5em;
   font-weight: bolder;
+  text-overflow: ellipsis;
+  color: #101522;
 `;
 
 export const JS = styled(IoLogoJavascript)`
