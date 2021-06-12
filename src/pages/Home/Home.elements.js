@@ -14,10 +14,10 @@ export const HomeContainer = styled.main`
 `;
 
 export const InfoWrap = styled.div`
-  padding: 20px 20px 60px;
+  padding: 30px 30px 70px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1px 5px;
+  grid-gap: 20px 40px;
   justify-content: center;
   align-content: center;
 
@@ -25,7 +25,7 @@ export const InfoWrap = styled.div`
     padding: 20px 20px 60px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1px 5px;
+    grid-gap: 20px 40px;
     justify-content: center;
     align-content: center;
   }
@@ -34,7 +34,7 @@ export const InfoWrap = styled.div`
     padding: 20px 20px 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1px 5px;
+    grid-gap: 20px 40px;
     justify-content: center;
     align-content: center;
     }

@@ -30,7 +30,7 @@ function Article(props) {
       {match === 'vue' && <Vue/>}
      </ArticleImage> 
      <ArticleCreated>
-     <em>Posted on <strong>{createdDate}</strong></em>
+       <em>Posted on <strong>{createdDate}</strong></em>
      </ArticleCreated>
      <ArticleHeadline>
       {headline}

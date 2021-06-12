@@ -21,14 +21,16 @@ import {
  
 export const ArticleWrapper = styled.article`
   box-sizing: border-box;
-  border: 1px solid #fff;
-  border-radius: 6px;
-  box-shadow:  5px 5px 10px #5E6E8C,
-              -5px -5px 10px #96B7E5;
   transform: scale(.9);
   width: 250px;
   height: 300px;
-  text-align: center;
+  
+  &:hover {
+    transform: scale(1.1);
+    border-radius: 4px;
+    box-shadow:  5px 5px 10px #5E6E8C,
+              -5px -5px 10px #96B7E5;
+  }
 `;
 
 export const ArticleImage = styled(Container)`
@@ -36,10 +38,13 @@ export const ArticleImage = styled(Container)`
   height:40%;
   /* background: #fff; */
   border: 2px solid #fff;
-  border-bottom: none;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  box-shadow:  5px 5px 10px #5E6E8C,
+              -5px -5px 10px #96B7E5;
 `;
 export const ArticleCreated = styled(Container)`
   height: 10%;
