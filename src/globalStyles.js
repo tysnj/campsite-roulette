@@ -1,7 +1,7 @@
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   z-index: 1;
-  width: 100%auto;
-  max-width: 1300px;
+  width: 100%;
+  max-width: 1600px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;
