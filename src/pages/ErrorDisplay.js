@@ -3,7 +3,7 @@ import React from 'react'
 function Error({error}) {
   return (
     <>
-      <h2>{error.message}</h2>
+      <h2 className="error">{error}</h2>
     </>
   )
 }

@@ -1,6 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import Error from './ErrorDisplay';
+import PlaceHolder from './PlaceHolder';
 import { getStories, cleanData } from '../utilities';
+import './pages.css'
+
+const HomeContainer = styled.main`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0 2em;
+`;
 
 const Home = () => {
   const [stories, setStories] = useState([]);
@@ -15,7 +28,6 @@ const Home = () => {
 
 
   getAllStories.current = async () => {
-    // requestURL + subject + attributes
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&tags=(story)&hitsPerPage=10'
     const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS']
@@ -25,10 +37,20 @@ const Home = () => {
   };
 
   return (
-    <>
-     Home
-     {error && <Error error={error}/>}
-    </>
+    <HomeContainer>
+      {
+        !stories.length && 
+        !error && 
+        <PlaceHolder/>
+      }
+      {
+        !stories.length && 
+        error && 
+        <Error error={error}/>
+      }
+
+
+    </HomeContainer>
   )
 }
 
