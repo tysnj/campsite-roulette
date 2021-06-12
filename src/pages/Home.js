@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 function Home() {
-  const [stories, setStories] = useState([])
-  const [error, setError] = useState(null)
+  const [stories, setStories] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getStories()
-      .then(data => setStories(...stories, sortStories(data)))
+      .then(data => setStories(sortStories(data.hits)))
       .catch(error => setError(error.message))
-  }, [stories]);
+  }, []);
 
   const getStories = () => {
     return fetch('GET', 'http://hn.algolia.com/api/v1/search?query=JavaScript&tags=story')
@@ -22,8 +22,9 @@ function Home() {
     };
 
   const sortStories = (stories) => {
-    console.log(stories)
-    return stories
+    let story = stories[0]
+    console.log(story)
+    return story
   }
 
   return (
