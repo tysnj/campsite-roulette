@@ -9,6 +9,11 @@ export const getStories = async (url) => {
   })
 }
 
+//  clean data function
+//  uses map to remove properties not needed
+//  uses delete operator
+//  needs to fit somewhere after sort
+
 export const sortStories = (data) => {
   return data[0].hits.concat(
     data[1].hits,
