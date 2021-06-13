@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { Container } from '../../globalStyles';
 import { BsFillBookmarkFill, BsBookmark } from 'react-icons/bs';
-import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
+// import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
 import { IoLogoReact, IoLogoVue} from 'react-icons/io5';
 import { 
   IoLogoJavascript,
   IoLogoHtml5,
   IoLogoCss3,
   IoLogoSass,
-  IoLogoAngular
+  IoLogoAngular,
+  IoIosCheckmarkCircleOutline,
+  IoIosCheckmarkCircle
 } from 'react-icons/io';
 
 const icon = `
@@ -19,7 +20,7 @@ const icon = `
 const options = `
   position: absolute;
   z-index: 5;
-  color: #101522;
+  color: #111623;
   width: 20px;
   height: 20px;
   display: flex;
@@ -33,7 +34,7 @@ const options = `
 `
 const link = `
   text-decoration: none;
-  color: #101522;
+  color: #111623;
 
   &:visited {
     text-decoration: none;
@@ -97,11 +98,11 @@ export const BookmarkFilled = styled(BsFillBookmarkFill)`
  ${icon}
 `
 
-export const CircleEmpty = styled(FaRegCircle)`
+export const CheckEmpty = styled(IoIosCheckmarkCircleOutline)`
  ${icon}
 `
 
-export const CircleChecked = styled(FaRegCheckCircle)`
+export const CheckFilled = styled(IoIosCheckmarkCircle)`
  ${icon}
 `
 
@@ -123,7 +124,7 @@ export const ArticleHeadline = styled.a`
   padding: 1em 0.1em;
   font-size:  1.5em;
   font-weight: bolder;
-  color: #101522;
+  color: #111623;
   position: relative;
   z-index: 2;
   top: 60%;

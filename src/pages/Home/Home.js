@@ -29,6 +29,21 @@ const Home = (props) => {
     props.setOpened(...props.opened, e.target.id)
   }
 
+  const getStoryState = (id) => {
+    let status = []
+    if (props.saved && props.saved.includes(id)) {
+      status.push('saved');
+    }
+    if (props.read && props.read.includes(id)) {
+      status.push('read');
+    }
+    if (props.opened && props.opened.includes(id)) {
+      status.push('opened');
+    }
+    return status;
+  }
+  
+
   getHomeStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&tags=story'
@@ -49,9 +64,10 @@ const Home = (props) => {
               info={story}
               key={i}
               id={story.created_at_i}
-              save={updateSaved}
-              read={updateRead}
-              open={updateOpened}
+              status={getStoryState(story.created_at_i)}
+              saveStory={updateSaved}
+              readStory={updateRead}
+              openStory={updateOpened}
             />
           )}
         </InfoWrap>

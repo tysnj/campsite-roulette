@@ -6,8 +6,8 @@ import {
   BookmarkEmpty,
   BookmarkFilled,
   ReadOption,
-  CircleEmpty,
-  CircleChecked,
+  CheckEmpty,
+  CheckFilled,
   ArticleCreated,
   ArticleHeadline,
   JS,
@@ -27,18 +27,18 @@ const Article = (props) => {
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()
   
-  // useEffect(() => {
-  //   checkStatus()
-  // }, [])
+  useEffect(() => {
+    if (props.status.includes('saved')) {
+      handleSave()
+    }
+    if (props.status.includes('read')) {
+      handleRead()
+    }
+  }, [])
 
-  // const checkStatus = ({props}) => {
-  //   if (saved.includes(id)) {
-  //     setStatus(status.push('saved'))
-  //   }
-  // }
   const handleSave = () => setSaved(!saved)
 
-  // const handleRead = () => {}
+  const handleRead = () => setRead(!read)
 
   // const handleOpened = () => {}
   // create a function that returns boolean
@@ -53,11 +53,11 @@ const Article = (props) => {
           <BookmarkEmpty className='bookmark-empty'/>
         }
       </SaveOption>
-      <ReadOption>
+      <ReadOption onClick={handleRead}>
         {
           read ? 
-          <CircleChecked className='circle'/> :
-          <CircleEmpty className='checked'/>
+          <CheckFilled className='circle'/> :
+          <CheckEmpty className='checked'/>
         }
       </ReadOption>
       <ArticleImage href={props.info.url} target='_blank'>
