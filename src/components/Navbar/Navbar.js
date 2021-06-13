@@ -41,6 +41,12 @@ const Navbar = () => {
                 Saved
               </NavLinks>
             </NavItem>
+
+            <NavItem>
+              <NavLinks to='/read'>
+                Read
+              </NavLinks>
+            </NavItem>
           </NavMenu>
           
         </NavbarContainer>
