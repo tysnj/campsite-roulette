@@ -17,7 +17,7 @@ const icon = `
 `
 
 const options = `
-  position: relative;
+  position: absolute;
   z-index: 5;
   color: #101522;
   width: 20px;
@@ -77,26 +77,16 @@ export const ArticleImage = styled.a`
   ${link}
 `;
 
-export const Options = styled(Container)`
-  position: absolute;
-  z-index: 3;
-  top: 2px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-self: center;
-  padding-left: 4px;
-  padding-right: 4px;
-  margin-left: 0;
-  margin-right: 0;
-`;
-
 export const SaveOption = styled.span`
  ${options}
+ top: 4px;
+ left: 3px;
 `;
 
 export const ReadOption = styled.span`
  ${options}
+ top: 4px;
+ right: 3px;
 `;
 
 export const BookmarkEmpty = styled(BsBookmark)`

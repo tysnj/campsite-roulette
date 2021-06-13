@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { 
   ArticleWrapper, 
   ArticleImage,
-  Options,
   SaveOption,
   BookmarkEmpty,
   BookmarkFilled,
@@ -47,22 +46,20 @@ const Article = (props) => {
   // conditionally render bookmark and checkmark accordingly
   return (
     <ArticleWrapper>
-      <Options>
-        <SaveOption onClick={handleSave}>
-          {
-            saved ? 
-            <BookmarkFilled className='bookmark'/> :
-            <BookmarkEmpty className='bookmark-empty'/>
-          }
-        </SaveOption>
-        <ReadOption>
-          {
-            read ? 
-            <CircleChecked className='circle'/> :
-            <CircleEmpty className='checked'/>
-          }
-        </ReadOption>
-      </Options>
+      <SaveOption onClick={handleSave}>
+        {
+          saved ? 
+          <BookmarkFilled className='bookmark'/> :
+          <BookmarkEmpty className='bookmark-empty'/>
+        }
+      </SaveOption>
+      <ReadOption>
+        {
+          read ? 
+          <CircleChecked className='circle'/> :
+          <CircleEmpty className='checked'/>
+        }
+      </ReadOption>
       <ArticleImage href={props.info.url} target='_blank'>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}
