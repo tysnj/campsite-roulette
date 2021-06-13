@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import { BsFillBookmarkFill, BsBookmark } from 'react-icons/bs';
-import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
-
+import React, { useState, useEffect } from 'react'
 import { 
   ArticleWrapper, 
   ArticleImage,
   Options,
+  SaveOption,
+  BookmarkEmpty,
+  BookmarkFilled,
+  ReadOption,
+  CircleEmpty,
+  CircleChecked,
   ArticleCreated,
   ArticleHeadline,
   JS,
@@ -18,34 +21,49 @@ import {
 } from './Articles.elements';
 
 const Article = (props) => {
- const [status, setStatus] = useState([]) 
+  const [saved, setSaved] = useState(false);
+  const [read, setRead] = useState(false);
+  // const [opened, setOpened] = useState(false);
   const match = props.info._highlightResult.title.matchedWords[0] 
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()
   
-  const handleSaved = () => {}
+  // useEffect(() => {
+  //   checkStatus()
+  // }, [])
 
-  const handleRead = () => {}
+  // const checkStatus = ({props}) => {
+  //   if (saved.includes(id)) {
+  //     setStatus(status.push('saved'))
+  //   }
+  // }
+  const handleSave = () => setSaved(!saved)
 
-  const handleOpened = () => {}
+  // const handleRead = () => {}
+
+  // const handleOpened = () => {}
   // create a function that returns boolean
   // based on if this story is in saved or read state
   // conditionally render bookmark and checkmark accordingly
   return (
     <ArticleWrapper href={props.info.url} target='_blank'>
+      <Options>
+        <SaveOption onClick={handleSave}>
+          {
+            saved ? 
+            <BookmarkFilled className='bookmark'/> :
+            <BookmarkEmpty className='bookmark-empty'/>
+          }
+        </SaveOption>
+        <ReadOption>
+          {
+            read ? 
+            <CircleChecked className='circle'/> :
+            <CircleEmpty className='checked'/>
+          }
+        </ReadOption>
+      </Options>
       <ArticleImage match={match}>
-        <Options>
-          {
-            status.includes('saved') ? 
-            <BsFillBookmarkFill className='bookmark option'/> :
-            <BsBookmark className='bookmark-empty option'/>
-          }
-          {
-            status.includes('read') ? 
-            <FaRegCheckCircle className='circle option'/> :
-            <FaRegCircle className='checked option'/>
-          }
-        </Options>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}
         {match === 'css3' && <CSS/>}

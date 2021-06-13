@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Container } from '../../globalStyles';
+import { BsFillBookmarkFill, BsBookmark } from 'react-icons/bs';
+import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
 import { IoLogoReact, IoLogoVue} from 'react-icons/io5';
 import { 
   IoLogoJavascript,
@@ -9,12 +11,29 @@ import {
   IoLogoAngular
 } from 'react-icons/io';
 
- const logo = `
+const logo = `
   width: 100%;
   height: 100%;
-   `
+`
+
+const options = `
+  position: relative;
+  z-index: 4;
+  color: #101522;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: crosshair;
+  }
+`
  
 export const ArticleWrapper = styled.a`
+  position: static;
   z-index: 1;
   box-sizing: border-box;
   transform: scale(.9);
@@ -25,7 +44,7 @@ export const ArticleWrapper = styled.a`
 
   &:visited {
     text-decoration: none;
-    color: #101522;
+    color: orange;
   }
   
   &:hover {
@@ -38,6 +57,7 @@ export const ArticleWrapper = styled.a`
 `;
 
 export const ArticleImage = styled(Container)`
+  position: relative;
   z-index: 2;
   width: 100%;
   height:40%;
@@ -50,28 +70,54 @@ export const ArticleImage = styled(Container)`
   border-radius: 6px;
   box-shadow:  5px 5px 10px #5E6E8C,
               -5px -5px 10px #96B7E5;
-  position: relative;
   padding: 0;
   margin: 0;
 `;
 
-export const Options = styled.span`
-  width: 100%;
+export const Options = styled(Container)`
   position: absolute;
+  z-index: 3;
+  top: 2px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  /* align-self: center; */
-  z-index: 3;
-  padding-left: 0;
-  padding-right: 0;
+  align-self: center;
+  padding-left: 4px;
+  padding-right: 4px;
   margin-left: 0;
   margin-right: 0;
 `;
+
+export const SaveOption = styled.span`
+ ${options}
+`;
+
+export const ReadOption = styled.span`
+ ${options}
+`;
+
+export const BookmarkEmpty = styled(BsBookmark)`
+ ${logo}
+`
+
+export const BookmarkFilled = styled(BsFillBookmarkFill)`
+ ${logo}
+`
+
+export const CircleEmpty = styled(FaRegCircle)`
+ ${logo}
+`
+
+export const CircleChecked = styled(FaRegCheckCircle)`
+ ${logo}
+`
 
 export const ArticleCreated = styled(Container)`
   height: 10%;
   width: 100%;
   padding: 1em 0.1em;
+  position: absolute;
+  z-index: 2;
 `;
 
 export const ArticleHeadline = styled(Container)`
@@ -83,6 +129,8 @@ export const ArticleHeadline = styled(Container)`
   font-size:  1.5em;
   font-weight: bolder;
   color: #101522;
+  position: absolute;
+  z-index: 2;
 `;
 
 export const JS = styled(IoLogoJavascript)`
