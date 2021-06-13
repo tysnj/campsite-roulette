@@ -25,7 +25,7 @@ export const cleanData = (data) => {
 
 const filterRelevant = (data) => {
   return data.filter(story => {
-    if (story._highlightResult.title.matchedWords.length) {
+    if (story._highlightResult.title.matchedWords.length && story.url) {
       return story
     }
   })

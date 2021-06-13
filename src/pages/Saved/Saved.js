@@ -3,6 +3,7 @@ import { getSpecificStories, cleanData } from '../../utilities';
 import Error from '../ErrorDisplay';
 import PlaceHolder from '../PlaceHolder';
 import { Article } from '../../components'
+import '../pages.css'
 import { SavedContainer, InfoWrap } from './Saved.elements'
 
 const Saved = (props) => {

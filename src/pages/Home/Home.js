@@ -17,8 +17,16 @@ const Home = (props) => {
       .catch(error => setError(error.message))
   }, []);
 
-  const handleClick = (e) => {
+  const updateSaved = (e) => {
     props.setSaved(...props.saved, e.target.id)
+  }
+
+  const updateRead = (e) => {
+    props.setRead(...props.read, e.target.id)
+  }  
+
+  const updateOpened = (e) => {
+    props.setOpened(...props.opened, e.target.id)
   }
 
   getHomeStories.current = async () => {
@@ -41,7 +49,9 @@ const Home = (props) => {
               info={story}
               key={i}
               id={story.created_at_i}
-              onClick={(e) => handleClick(e)}
+              save={updateSaved}
+              read={updateRead}
+              open={updateOpened}
             />
           )}
         </InfoWrap>

@@ -23,15 +23,28 @@ const Article = (props) => {
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()
   
+  const handleSaved = () => {}
+
+  const handleRead = () => {}
+
+  const handleOpened = () => {}
   // create a function that returns boolean
   // based on if this story is in saved or read state
   // conditionally render bookmark and checkmark accordingly
   return (
-    <ArticleWrapper>
+    <ArticleWrapper href={props.info.url} target='_blank'>
       <ArticleImage match={match}>
         <Options>
-          <BsBookmark/>
-          <FaRegCircle/>
+          {
+            status.includes('saved') ? 
+            <BsFillBookmarkFill className='bookmark option'/> :
+            <BsBookmark className='bookmark-empty option'/>
+          }
+          {
+            status.includes('read') ? 
+            <FaRegCheckCircle className='circle option'/> :
+            <FaRegCircle className='checked option'/>
+          }
         </Options>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}

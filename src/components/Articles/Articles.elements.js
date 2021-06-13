@@ -14,12 +14,19 @@ import {
   height: 100%;
    `
  
-export const ArticleWrapper = styled.article`
+export const ArticleWrapper = styled.a`
   z-index: 1;
   box-sizing: border-box;
   transform: scale(.9);
   width: 300px;
   height: 300px;
+  text-decoration: none;
+  color: #101522;
+
+  &:visited {
+    text-decoration: none;
+    color: #101522;
+  }
   
   &:hover {
     border-radius: 4px;

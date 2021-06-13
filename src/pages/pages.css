@@ -68,10 +68,14 @@
     }
   }
 
-
-
 .error {
   font-size: 80px;
   color: red;
   margin: 100px;
+}
+
+.option {
+  color: #101522;
+  width: 20px;
+  height: 20px;
 }
