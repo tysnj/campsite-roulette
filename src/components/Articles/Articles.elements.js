@@ -11,14 +11,14 @@ import {
   IoLogoAngular
 } from 'react-icons/io';
 
-const logo = `
+const icon = `
   width: 100%;
   height: 100%;
 `
 
 const options = `
   position: relative;
-  z-index: 4;
+  z-index: 5;
   color: #101522;
   width: 20px;
   height: 20px;
@@ -31,14 +31,7 @@ const options = `
     cursor: crosshair;
   }
 `
- 
-export const ArticleWrapper = styled.a`
-  position: static;
-  z-index: 1;
-  box-sizing: border-box;
-  transform: scale(.9);
-  width: 300px;
-  height: 300px;
+const link = `
   text-decoration: none;
   color: #101522;
 
@@ -46,6 +39,15 @@ export const ArticleWrapper = styled.a`
     text-decoration: none;
     color: orange;
   }
+`;
+
+export const ArticleWrapper = styled.article`
+  position: static;
+  z-index: 1;
+  box-sizing: border-box;
+  transform: scale(.9);
+  width: 300px;
+  height: 300px;
   
   &:hover {
     border-radius: 4px;
@@ -56,8 +58,8 @@ export const ArticleWrapper = styled.a`
   }
 `;
 
-export const ArticleImage = styled(Container)`
-  position: relative;
+export const ArticleImage = styled.a`
+  position: absolute;
   z-index: 2;
   width: 100%;
   height:40%;
@@ -72,6 +74,7 @@ export const ArticleImage = styled(Container)`
               -5px -5px 10px #96B7E5;
   padding: 0;
   margin: 0;
+  ${link}
 `;
 
 export const Options = styled(Container)`
@@ -97,30 +100,32 @@ export const ReadOption = styled.span`
 `;
 
 export const BookmarkEmpty = styled(BsBookmark)`
- ${logo}
+ ${icon}
 `
 
 export const BookmarkFilled = styled(BsFillBookmarkFill)`
- ${logo}
+ ${icon}
 `
 
 export const CircleEmpty = styled(FaRegCircle)`
- ${logo}
+ ${icon}
 `
 
 export const CircleChecked = styled(FaRegCheckCircle)`
- ${logo}
+ ${icon}
 `
 
-export const ArticleCreated = styled(Container)`
+export const ArticleCreated = styled.a`
   height: 10%;
   width: 100%;
   padding: 1em 0.1em;
   position: absolute;
   z-index: 2;
+  top: 40%;
+  ${link}
 `;
 
-export const ArticleHeadline = styled(Container)`
+export const ArticleHeadline = styled.a`
   height:50%;
   align-items: center;
   justify-content: center;
@@ -129,41 +134,43 @@ export const ArticleHeadline = styled(Container)`
   font-size:  1.5em;
   font-weight: bolder;
   color: #101522;
-  position: absolute;
+  position: relative;
   z-index: 2;
+  top: 60%;
+  text-decoration: none;
 `;
 
 export const JS = styled(IoLogoJavascript)`
-  ${logo}
+  ${icon}
   color: #f0db4f;
 `;
 
 export const CSS = styled(IoLogoCss3)`
-  ${logo}
+  ${icon}
   color: #254BDD;
 `;
 
 export const HTML = styled(IoLogoHtml5)`
-  ${logo}
+  ${icon}
   color: #f16529;
 `;
 
 export const Sass = styled(IoLogoSass)`
-  ${logo}
+  ${icon}
   color: #dd6699;
 `;
 
 export const ReactLogo = styled(IoLogoReact)`
-  ${logo}
+  ${icon}
   color: #61dbfb;
 `;
 
 export const Angular = styled(IoLogoAngular)`
-  ${logo}
+  ${icon}
   color: #b52e31;
 `;
 
 export const Vue = styled(IoLogoVue)`
-  ${logo}
+  ${icon}
   color: #41b883;
 `;

@@ -46,7 +46,7 @@ const Article = (props) => {
   // based on if this story is in saved or read state
   // conditionally render bookmark and checkmark accordingly
   return (
-    <ArticleWrapper href={props.info.url} target='_blank'>
+    <ArticleWrapper>
       <Options>
         <SaveOption onClick={handleSave}>
           {
@@ -63,7 +63,7 @@ const Article = (props) => {
           }
         </ReadOption>
       </Options>
-      <ArticleImage match={match}>
+      <ArticleImage href={props.info.url} target='_blank'>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}
         {match === 'css3' && <CSS/>}
@@ -76,10 +76,10 @@ const Article = (props) => {
         {match === 'vue.js' && <Vue/>}
         {match === 'vue' && <Vue/>}
       </ArticleImage> 
-      <ArticleCreated>
+      <ArticleCreated href={props.info.url} target='_blank'>
         <em>Posted on <strong>{createdDate}</strong></em>
       </ArticleCreated>
-      <ArticleHeadline>
+      <ArticleHeadline href={props.info.url} target='_blank'>
         {headline}
       </ArticleHeadline>
     </ArticleWrapper>
