@@ -1,18 +1,13 @@
 import styled from 'styled-components';
-//import { Container } from '../../globalStyles';
 import { Container } from '../../globalStyles';
-
-import { 
-  IoLogoReact,
-  IoLogoVue
-} from 'react-icons/io5';
+import { IoLogoReact, IoLogoVue} from 'react-icons/io5';
 import { 
   IoLogoJavascript,
   IoLogoHtml5,
   IoLogoCss3,
   IoLogoSass,
-  IoLogoAngular,
- } from 'react-icons/io';
+  IoLogoAngular
+} from 'react-icons/io';
 
  const logo = `
   width: 100%;
@@ -20,6 +15,7 @@ import {
    `
  
 export const ArticleWrapper = styled.article`
+  z-index: 1;
   box-sizing: border-box;
   transform: scale(.9);
   width: 300px;
@@ -35,6 +31,7 @@ export const ArticleWrapper = styled.article`
 `;
 
 export const ArticleImage = styled(Container)`
+  z-index: 2;
   width: 100%;
   height:40%;
   background: #fff;
@@ -46,7 +43,24 @@ export const ArticleImage = styled(Container)`
   border-radius: 6px;
   box-shadow:  5px 5px 10px #5E6E8C,
               -5px -5px 10px #96B7E5;
+  position: relative;
+  padding: 0;
+  margin: 0;
 `;
+
+export const Options = styled.span`
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  /* align-self: center; */
+  z-index: 3;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+`;
+
 export const ArticleCreated = styled(Container)`
   height: 10%;
   width: 100%;
