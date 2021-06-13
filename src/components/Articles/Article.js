@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsFillBookmarkFill, BsBookmark } from 'react-icons/bs';
 import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
 
@@ -17,8 +17,8 @@ import {
   CSS
 } from './Articles.elements';
 
-function Article(props) {
-
+const Article = (props) => {
+ const [status, setStatus] = useState([]) 
   const match = props.info._highlightResult.title.matchedWords[0] 
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()

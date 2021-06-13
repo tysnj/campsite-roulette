@@ -1,7 +1,7 @@
 // import React, { useState, useEffect, useRef } from 'react'
 // import { getSpecificStories, cleanData } from '../../utilities';
 
-function Read() {
+const Read = () => {
   return (
     <div>
       Read

@@ -6,9 +6,10 @@ import Home from './pages/Home/Home'
 import Saved from './pages/Saved/Saved'
 import Read from './pages/Read/Read'
 
-function App() {
+const App = () => {
   const [saved, setSaved] = useState([])
   const [read, setRead] = useState([])
+  const [opened, setOpened] = useState([])
 
   return (
     <Router>
@@ -22,6 +23,8 @@ function App() {
           setSaved={setSaved}
           read={read}
           setRead={setRead}
+          opened={opened}
+          setOpened={setOpened}
         />
         <Route 
           path='/saved'  
@@ -30,6 +33,8 @@ function App() {
           setSaved={setSaved}
           read={read}
           setRead={setRead}
+          opened={opened}
+          setOpened={setOpened}
         />
         <Route 
           path='/read'  
@@ -38,6 +43,8 @@ function App() {
           setSaved={setSaved}
           read={read}
           setRead={setRead}
+          opened={opened}
+          setOpened={setOpened}
         />
         <Redirect to='/' />          
       </Switch>
