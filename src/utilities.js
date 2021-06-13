@@ -9,6 +9,16 @@ export const getStories = async (url) => {
   })
 }
 
+export const getSaved = async (url) => {
+  return await fetch(url).then(response => {
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw new Error(response.message)
+    }
+  })
+}
+
 export const cleanData = (data) => {
   return filterRelevant(sortStories(cleanStories(combineHits(data))))
 }
@@ -40,7 +50,6 @@ const cleanStories = (data) => {
     delete story.story_title;
     delete story.story_url;
     delete story.parent_id;
-    delete story.created_at_i;
     delete story._tags;
     delete story._highlightResult.author;
     delete story._highlightResult.url;

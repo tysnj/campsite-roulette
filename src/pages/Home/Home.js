@@ -6,7 +6,7 @@ import { getStories, cleanData } from '../../utilities';
 import '../pages.css'
 import { HomeContainer, InfoWrap } from './Home.elements'
 
-const Home = () => {
+const Home = (props) => {
   const [stories, setStories] = useState([]);
   const [error, setError] = useState(null);
   const getAllStories = useRef(() => {});
@@ -16,6 +16,10 @@ const Home = () => {
       .then(data => setStories(cleanData(data)))
       .catch(error => setError(error.message))
   }, []);
+
+  const handleClick = (e) => {
+    props.setSaved(...props.saved, e.target.id)
+  }
 
   getAllStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
@@ -36,6 +40,8 @@ const Home = () => {
             <Article
               info={story}
               key={i}
+              id={story.created_at_i}
+              onClick={(e) => handleClick(e)}
             />
           )}
         </InfoWrap>

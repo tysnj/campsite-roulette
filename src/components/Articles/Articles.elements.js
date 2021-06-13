@@ -61,7 +61,6 @@ export const ArticleHeadline = styled(Container)`
   padding: 1em 0.1em;
   font-size:  1.5em;
   font-weight: bolder;
-  /* overflow: none; */
   color: #101522;
 `;
 
