@@ -20,25 +20,30 @@ import {
 } from './Articles.elements';
 
 const Article = (props) => {
-  const [saved, setSaved] = useState(false);
-  const [read, setRead] = useState(false);
+  const [savedStatus, setSavedStatus] = useState(false);
+  const [readStatus, setReadStatus] = useState(false);
   // const [opened, setOpened] = useState(false);
   const match = props.info._highlightResult.title.matchedWords[0] 
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()
   
   useEffect(() => {
-    if (props.status.includes('saved')) {
+    if (props.status === undefined) {
+      return
+    } else if (props.status.includes('saved')) {
       handleSave()
     }
     if (props.status.includes('read')) {
       handleRead()
     }
-  }, [])
+  })
 
-  const handleSave = () => setSaved(!saved)
+  const handleSave = () => {
+    props.saveStory(props.id)
+    setSavedStatus(!savedStatus)
+  }
 
-  const handleRead = () => setRead(!read)
+  const handleRead = () => setReadStatus(!readStatus)
 
   // const handleOpened = () => {}
   // create a function that returns boolean
@@ -48,14 +53,14 @@ const Article = (props) => {
     <ArticleWrapper>
       <SaveOption onClick={handleSave}>
         {
-          saved ? 
+          savedStatus ? 
           <BookmarkFilled className='bookmark'/> :
           <BookmarkEmpty className='bookmark-empty'/>
         }
       </SaveOption>
       <ReadOption onClick={handleRead}>
         {
-          read ? 
+          readStatus ? 
           <CheckFilled className='circle'/> :
           <CheckEmpty className='checked'/>
         }

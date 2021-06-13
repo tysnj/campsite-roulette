@@ -7,44 +7,50 @@ import Saved from './pages/Saved/Saved'
 import Read from './pages/Read/Read'
 
 const App = () => {
-  const [saved, setSaved] = useState([])
-  const [read, setRead] = useState([])
-  const [opened, setOpened] = useState([])
+  const [savedStories, setSavedStories] = useState([])
+  const [readStories, setReadStories] = useState([])
+  const [openedStories, setOpenedStories] = useState([])
 
   return (
     <Router>
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route 
-          path='/' 
-          exact component={Home} 
-          saved={saved}
-          setSaved={setSaved}
-          read={read}
-          setRead={setRead}
-          opened={opened}
-          setOpened={setOpened}
+        <Route exact path='/'
+          render={() => (
+            <Home
+              saved={savedStories}
+              setSavedStories={setSavedStories}
+              read={readStories}
+              setReadStories={setReadStories}
+              opened={openedStories}
+              setOpenedStories={setOpenedStories} 
+            />
+          )}
         />
-        <Route 
-          path='/saved'  
-          component={Saved} 
-          saved={saved}
-          setSaved={setSaved}
-          read={read}
-          setRead={setRead}
-          opened={opened}
-          setOpened={setOpened}
+        <Route path='/saved'
+          render={() => (
+            <Saved
+              saved={savedStories}
+              setSavedStories={setSavedStories}
+              read={readStories}
+              setReadStories={setReadStories}
+              opened={openedStories}
+              setOpenedStories={setOpenedStories} 
+            />
+          )}
         />
-        <Route 
-          path='/read'  
-          component={Read} 
-          saved={saved}
-          setSaved={setSaved}
-          read={read}
-          setRead={setRead}
-          opened={opened}
-          setOpened={setOpened}
+        <Route path='/read'
+          render={() => (
+            <Read
+              saved={savedStories}
+              setSavedStories={setSavedStories}
+              read={readStories}
+              setReadStories={setReadStories}
+              opened={openedStories}
+              setOpenedStories={setOpenedStories} 
+            />
+          )}
         />
         <Redirect to='/' />          
       </Switch>

@@ -17,27 +17,34 @@ const Home = (props) => {
       .catch(error => setError(error.message))
   }, []);
 
-  const updateSaved = (e) => {
-    props.setSaved(...props.saved, e.target.id)
+  const updateSaved = (id) => {
+    if (!props.saved.includes(id)) {
+      props.setSavedStories([...props.saved, id])
+    } else {
+      props.setSavedStories(props.saved.filter(story => story !== id))
+    }
   }
 
-  const updateRead = (e) => {
-    props.setRead(...props.read, e.target.id)
+  const updateRead = (id) => {
+    props.setReadStories([...props.read, id])
   }  
 
-  const updateOpened = (e) => {
-    props.setOpened(...props.opened, e.target.id)
+  const updateOpened = (id) => {
+    props.setOpenedStories([...props.opened, id])
   }
 
   const getStoryState = (id) => {
     let status = []
-    if (props.saved && props.saved.includes(id)) {
+    if (props.save === undefined) {
+      return
+    }
+    if (props.saved.includes(id)) {
       status.push('saved');
     }
-    if (props.read && props.read.includes(id)) {
+    if (props.read.includes(id)) {
       status.push('read');
     }
-    if (props.opened && props.opened.includes(id)) {
+    if (props.opened.includes(id)) {
       status.push('opened');
     }
     return status;
