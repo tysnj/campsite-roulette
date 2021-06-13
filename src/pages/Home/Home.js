@@ -24,7 +24,7 @@ const Home = (props) => {
   getHomeStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&tags=story'
-    const subjects = ['JavaScript', 'Vue', 'Angular', 'React', 'CSS', 'HTML', 'Sass']
+    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass']
     return await Promise.all(
       subjects.map(subject => getCurrentStories(requestURL + subject + attributes))
     )

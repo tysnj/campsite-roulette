@@ -35,10 +35,14 @@ function Article(props) {
         </Options>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}
+        {match === 'css3' && <CSS/>}
         {match === 'sass' && <Sass/>}
         {match === 'html' && <HTML/>}
+        {match === 'html5' && <HTML/>}
+        {match === 'angularjs' && <Angular/>}
         {match === 'angular' && <Angular/>}
         {match === 'react' && <ReactLogo/>}
+        {match === 'vue.js' && <Vue/>}
         {match === 'vue' && <Vue/>}
       </ArticleImage> 
       <ArticleCreated>
