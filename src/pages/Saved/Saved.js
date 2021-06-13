@@ -1,5 +1,5 @@
-import React from 'react'
-import { getSaved, cleanData } from '../../utilities';
+import React, { useEffect } from 'react'
+import { getSavedStories, cleanData } from '../../utilities';
 
 function Saved(props) {
   useEffect(() => {
@@ -11,7 +11,7 @@ function Saved(props) {
   const handleClick = (e) => {
     props.setSaved(...props.saved, e.target.id)
   }
-  
+
   getSavedStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?numericFilters=created_at_i='
     return await Promise.all(

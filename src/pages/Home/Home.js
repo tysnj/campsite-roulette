@@ -7,7 +7,7 @@ import '../pages.css'
 import { HomeContainer, InfoWrap } from './Home.elements'
 
 const Home = (props) => {
-  const [stories, setStories] = useState([]);
+  const [currentStories, setCurrentStories] = useState([]);
   const [error, setError] = useState(null);
   const getAllStories = useRef(() => {});
 
@@ -32,11 +32,11 @@ const Home = (props) => {
 
   return (
     <HomeContainer>
-      {!stories.length && !error && <PlaceHolder/>}
-      {!stories.length && error && <Error error={error}/>}
-      {!error && stories.length &&
+      {!currentStories.length && !error && <PlaceHolder/>}
+      {!currentStories.length && error && <Error error={error}/>}
+      {!error && currentStories.length &&
         <InfoWrap>
-          {stories.map((story, i) => 
+          {currentStories.map((story, i) => 
             <Article
               info={story}
               key={i}

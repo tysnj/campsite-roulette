@@ -9,7 +9,7 @@ export const getStories = async (url) => {
   })
 }
 
-export const getSaved = async (url) => {
+export const getSavedStories = async (url) => {
   return await fetch(url).then(response => {
     if (response.ok) {
       return response.json()
