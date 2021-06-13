@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -28,12 +28,16 @@ export const NavbarContainer = styled(Container)`
   ${Container}
 `;
 
+export const NavTags = styled(Container)`
+  background-color: #fff;
+`;
+
 export const NavLogo = styled(Link)`
   color: #fff;
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 3rem;
   display: flex;
   align-items: center;
 `;

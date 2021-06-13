@@ -22,21 +22,22 @@ import {
 export const ArticleWrapper = styled.article`
   box-sizing: border-box;
   transform: scale(.9);
-  width: 250px;
+  width: 300px;
   height: 300px;
   
   &:hover {
-    transform: scale(1.1);
     border-radius: 4px;
     box-shadow:  5px 5px 10px #5E6E8C,
               -5px -5px 10px #96B7E5;
+    overflow: hidden;
+    background: #F7FAF9;
   }
 `;
 
 export const ArticleImage = styled(Container)`
   width: 100%;
   height:40%;
-  /* background: #fff; */
+  background: #fff;
   border: 2px solid #fff;
   align-items: center;
   justify-content: center;
@@ -60,7 +61,7 @@ export const ArticleHeadline = styled(Container)`
   padding: 1em 0.1em;
   font-size:  1.5em;
   font-weight: bolder;
-  text-overflow: ellipsis;
+  /* overflow: none; */
   color: #101522;
 `;
 
@@ -82,12 +83,13 @@ export const HTML = styled(IoLogoHtml5)`
 export const Sass = styled(IoLogoSass)`
   ${logo}
   color: #dd6699;
-  /* background-color: #222222 */
 `;
+
 export const ReactLogo = styled(IoLogoReact)`
   ${logo}
   color: #61dbfb;
 `;
+
 export const Angular = styled(IoLogoAngular)`
   ${logo}
   color: #b52e31;

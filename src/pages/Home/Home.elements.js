@@ -10,11 +10,11 @@ export const HomeContainer = styled.main`
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  margin: 0 2em;
+  margin: 1em 1em;
 `;
 
 export const InfoWrap = styled.div`
-  padding: 30px 30px 70px;
+  padding: 40px 10px 50px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px 40px;
@@ -22,7 +22,7 @@ export const InfoWrap = styled.div`
   align-content: center;
 
   @media screen and (max-width: 1500px) {
-    padding: 20px 20px 60px;
+    padding: 20px 10px 60px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px 40px;
@@ -31,7 +31,7 @@ export const InfoWrap = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    padding: 20px 20px 60px;
+    padding: 20px 10px 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px 40px;

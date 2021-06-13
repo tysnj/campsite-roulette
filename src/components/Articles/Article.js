@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { 
   ArticleWrapper, 
@@ -19,7 +19,7 @@ function Article(props) {
   const headline = props.info.title
   const createdDate = new Date(props.info.created_at).toLocaleDateString()
   return (
-    <ArticleWrapper >
+    <ArticleWrapper>
      <ArticleImage match={match}>
       {match === 'javascript' && <JS/>}
       {match === 'css' && <CSS/>}
