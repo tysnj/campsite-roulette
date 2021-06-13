@@ -7,6 +7,7 @@ import Saved from './pages/Saved/Saved'
 
 function App() {
   const [saved, setSaved] = useState([])
+  const [read, setRead] = useState([])
 
   return (
     <Router>
@@ -18,12 +19,16 @@ function App() {
           exact component={Home} 
           saved={saved}
           setSaved={setSaved}
+          read={read}
+          setRead={setRead}
         />
         <Route 
           path='/saved'  
           component={Saved} 
           saved={saved}
           setSaved={setSaved}
+          read={read}
+          setRead={setRead}
         />
         <Redirect to='/' />          
       </Switch>

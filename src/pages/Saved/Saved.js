@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react'
-import { getSavedStories, cleanData } from '../../utilities';
+import React, { useState, useEffect, useRef } from 'react'
+import { getSpecificStories, cleanData } from '../../utilities';
 
 function Saved(props) {
+  const [savedStories, setSavedStories] = useState([]);
+  const [error, setError] = useState(null);
+  const getSavedStories = useRef(() => {});
+
   useEffect(() => {
     getSavedStories.current()
-     .then(data => setStories(cleanData(data)))
+     .then(data => setSavedStories(cleanData(data)))
      .catch(error => setError(error.message))
   }, []);
 
   const handleClick = (e) => {
-    props.setSaved(...props.saved, e.target.id)
+    props.setSavedStories(...props.saved, e.target.id)
   }
 
   getSavedStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?numericFilters=created_at_i='
     return await Promise.all(
-      props.saved.map(subject => getSaved(requestURL + subject + attributes))
+      props.saved.map(id => getSpecificStories(requestURL + id))
     )
   };
   return (

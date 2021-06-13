@@ -1,5 +1,5 @@
 
-export const getStories = async (url) => {
+export const getCurrentStories = async (url) => {
   return await fetch(url).then(response => {
     if (response.ok) {
       return response.json()
@@ -9,7 +9,7 @@ export const getStories = async (url) => {
   })
 }
 
-export const getSavedStories = async (url) => {
+export const getSpecificStories = async (url) => {
   return await fetch(url).then(response => {
     if (response.ok) {
       return response.json()
