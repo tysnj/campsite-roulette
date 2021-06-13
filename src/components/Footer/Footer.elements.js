@@ -7,9 +7,7 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
   width: 100%;
-  bottom: 0;
 `;
 
 export const ExternalLinkContainer = styled.div`
