@@ -1,7 +1,12 @@
+
 describe('The Test', () => {
   beforeEach(() => {
     cy.interceptStories()
   });
+
+    it('should be true', () => {
+     expect(true).to.eql(true)
+    })
 
   it('should intercept the network requests', () => {
     cy.wait('@getJS')
