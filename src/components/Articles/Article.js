@@ -43,7 +43,10 @@ const Article = (props) => {
     props.saveStory(props.id, match, savedStatus)
   }
 
-  const handleRead = () => setReadStatus(!readStatus)
+  const handleRead = () => {
+    setReadStatus(!readStatus)
+    props.readStory(props.id, match, readStatus)
+  }
 
   return (
     <ArticleWrapper data-cy={props.cy}>
