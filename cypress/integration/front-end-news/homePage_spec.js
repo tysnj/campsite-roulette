@@ -34,7 +34,7 @@ describe('Home Page', () => {
     cy.url().should('eq', 'http://localhost:3000/' )
   })
 
-  it('should display an article', () => {
+  it('Should display an article', () => {
     cy.get('main').get('div').get('article').should('be.visible')
   });
 });

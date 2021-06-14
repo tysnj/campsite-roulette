@@ -4,7 +4,7 @@ describe('Saved Page', () => {
     cy.url().should('eq', 'http://localhost:3000/saved' )
   })
 
-  it('should display the saved story', () => {
+  it('Should display the saved story', () => {
     cy.interceptStories()
     cy.visit('/')
     cy.saveStory()

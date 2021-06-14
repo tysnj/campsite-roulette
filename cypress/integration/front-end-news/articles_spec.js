@@ -4,23 +4,23 @@ describe('Articles', () => {
     cy.visit('/')
   });
 
-  it('should display with image', () => {
+  it('Should display with image', () => {
     cy.get('[data-cy=article-image]').should('be.visible')
   });
 
-  it('should display with a posted date', () => {
+  it('Should display with a posted date', () => {
     cy.get('[data-cy=article-date]').should('be.visible')
   });
 
-  it('should display with a headline', () => {
+  it('Should display with a headline', () => {
     cy.get('[data-cy=article-headline]').should('be.visible')
   });
 
-  it('should display option to save', () => {
+  it('Should display option to save', () => {
     cy.get('[data-cy=save-option]').should('be.visible')
   });
 
-  it('should display option to mark as read', () => {
+  it('Should display option to mark as read', () => {
     cy.get('[data-cy=read-option]').should('be.visible')
   });
 
