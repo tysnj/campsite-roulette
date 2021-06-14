@@ -13,12 +13,20 @@ const Home = (props) => {
 
   useEffect(() => {
      getHomeStories.current()
-      .then(data => setCurrentStories(cleanHomeData(data)))
-      .catch(error => setError(error.message))
+     .then(data => setCurrentStories(cleanHomeData(data)))
+     .catch(error => setError(error.message))
   }, []);
 
+  getHomeStories.current = async () => {
+    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
+    let attributes = '&tags=story'
+    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass']
+    return await Promise.all(
+      subjects.map(subject => getCurrentStories(requestURL + subject + attributes))
+    )
+  };
+
   const updateSaved = (id, tag) => {
-    console.log('imma take one')
     if (props.saved.findIndex(story => story.id === id) === -1) {
       props.setSavedStories([...props.saved, {id: id, tag: tag}])
     } else {
@@ -57,16 +65,6 @@ const Home = (props) => {
      }
     return status;
   }
-  
-
-  getHomeStories.current = async () => {
-    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
-    let attributes = '&tags=story'
-    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass']
-    return await Promise.all(
-      subjects.map(subject => getCurrentStories(requestURL + subject + attributes))
-    )
-  };
 
   return (
     <HomeContainer>

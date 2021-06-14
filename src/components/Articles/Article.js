@@ -45,10 +45,6 @@ const Article = (props) => {
 
   const handleRead = () => setReadStatus(!readStatus)
 
-  // const handleOpened = () => {}
-  // create a function that returns boolean
-  // based on if this story is in saved or read state
-  // conditionally render bookmark and checkmark accordingly
   return (
     <ArticleWrapper>
       <SaveOption onClick={handleSave}>
