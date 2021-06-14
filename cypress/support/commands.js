@@ -90,3 +90,9 @@ Cypress.Commands.add('stealStories', () => {
   cy.wait(['@getJS', '@getVue', '@getAngular', '@getReact', '@getHtml', '@getCss', '@getSass'], {timeout: 35000})
   .visit('http://localhost:3000/')
 })
+
+Cypress.Commands.add('saveStory', () => {
+  cy.get('[data-cy="0"]').within(() => {
+    cy.get('[data-cy=save-option]').click({force: true})
+  });
+})

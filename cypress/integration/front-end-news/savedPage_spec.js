@@ -1,0 +1,16 @@
+describe('Saved Page', () => {
+  it('Should be at the right url', () => {
+    cy.visit('/saved')
+    cy.url().should('eq', 'http://localhost:3000/saved' )
+  })
+
+  it('should display the saved story', () => {
+    cy.interceptStories()
+    cy.visit('/')
+    cy.saveStory()
+    cy.get('[data-cy=saved-link]').click()
+    cy.get('[data-cy=article-image]').should('be.visible')
+
+  });
+
+});
