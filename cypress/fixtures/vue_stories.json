@@ -1,0 +1,32 @@
+// 'JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass'
+
+[
+  {
+    "hits": [
+      {
+        "created_at": "2021-06-11T21:19:51.000Z",
+        "created_at_i": 1623446391,
+        "objectID": "27478644",
+        "title": "From Vue.js to TypeScript (tools you can use)",
+        "url": "https://thescottkrause.com/emerging_tech/curated-typescript-links/",
+        "_highlightResult": {
+          "title": {
+            "matchedWords": ["vue"]
+          }
+        }
+      },
+      {
+        "created_at": "2021-06-10T16:29:29.000Z",
+        "created_at_i": 1623342569,
+        "objectID": "27462544",
+        "title": "Home Rolled Store with the Vue.js Composition API",
+        "url": "https://vueschool.io/articles/vuejs-tutorials/home-rolled-store-with-the-vue-js-composition-api",
+        "_highlightResult": {
+          "title": {
+            "matchedWords": ["vue"]
+          }
+        }
+      } 
+    ]
+  }
+]
