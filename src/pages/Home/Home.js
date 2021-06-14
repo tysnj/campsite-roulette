@@ -12,9 +12,9 @@ const Home = (props) => {
   const getHomeStories = useRef(() => {});
 
   useEffect(() => {
-     getHomeStories.current()
-     .then(data => setCurrentStories(cleanHomeData(data)))
-     .catch(error => setError(error.message))
+    getHomeStories.current()
+      .then(data => setCurrentStories(cleanHomeData(data)))
+      .catch(error => setError(error.message))
   }, []);
 
   getHomeStories.current = async () => {
@@ -26,9 +26,11 @@ const Home = (props) => {
     )
   };
 
-  const updateSaved = (id, tag) => {
+  const updateSaved = (id, tag, status) => {
     if (props.saved.findIndex(story => story.id === id) === -1) {
       props.setSavedStories([...props.saved, {id: id, tag: tag}])
+    } else if (props.saved.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setSavedStories([...props.saved])
     } else {
       props.setSavedStories(props.saved.filter(story => story.id !== id))
     }

@@ -39,8 +39,8 @@ const Article = (props) => {
   }, [])
 
   const handleSave = () => {
-    props.saveStory(props.id, match)
     setSavedStatus(!savedStatus)
+    props.saveStory(props.id, match, savedStatus)
   }
 
   const handleRead = () => setReadStatus(!readStatus)
