@@ -78,6 +78,7 @@ const Home = (props) => {
         <InfoWrap>
           {currentStories.map((story, i) => 
             <Article
+              cy={i}
               info={story}
               key={i}
               id={story.created_at_i}

@@ -8,14 +8,13 @@ const cssEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=CSS3&tags
 const htmlEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=HTML5&tags=story"
 const sassEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query= Sass&tags=story"
 
-// eslint-disable-next-line no-undef
 Cypress.Commands.add('interceptStories', () => {
   cy.fixture('js_stories.json')
     .then(data => {
       cy.intercept(jsEndpoint, {
         statusCode: 201,
         delay: 100,
-        result: data
+        body: data
       })
     })
   cy.fixture('vue_stories.json')
@@ -23,7 +22,7 @@ Cypress.Commands.add('interceptStories', () => {
       cy.intercept(vueEndpoint, {
         statusCode: 201,
         delay: 100,
-        result: data
+        body: data
       })
     })
   cy.fixture('angular_stories.json')
@@ -80,3 +79,14 @@ Cypress.Commands.add('swoopStories', () => {
   .visit('http://localhost:3000/')
 })
 
+Cypress.Commands.add('stealStories', () => {
+  cy.intercept(jsEndpoint, { fixture: 'js_stories.json' }).as('getJS')
+  cy.intercept(vueEndpoint, { fixture: 'vue_stories.json' }).as('getVue')
+  cy.intercept(angularEndpoint, { fixture: 'angular_stories.json' }).as('getAngular')
+  cy.intercept(reactEndpoint, { fixture: 'react_stories.json' }).as('getReact')
+  cy.intercept(htmlEndpoint, { fixture: 'html_stories.json' }).as('getHtml')
+  cy.intercept(cssEndpoint, { fixture: 'css_stories.json' }).as('getCss')
+  cy.intercept(sassEndpoint, { fixture: 'sass_stories.json' }).as('getSass')
+  cy.wait(['@getJS', '@getVue', '@getAngular', '@getReact', '@getHtml', '@getCss', '@getSass'], {timeout: 35000})
+  .visit('http://localhost:3000/')
+})

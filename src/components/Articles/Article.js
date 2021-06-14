@@ -46,22 +46,22 @@ const Article = (props) => {
   const handleRead = () => setReadStatus(!readStatus)
 
   return (
-    <ArticleWrapper>
-      <SaveOption onClick={handleSave}>
+    <ArticleWrapper data-cy={props.cy}>
+      <SaveOption onClick={handleSave} data-cy='save-option'>
         {
           savedStatus ? 
           <BookmarkFilled className='bookmark'/> :
           <BookmarkEmpty className='bookmark-empty'/>
         }
       </SaveOption>
-      <ReadOption onClick={handleRead}>
+      <ReadOption onClick={handleRead} data-cy='read-option'>
         {
           readStatus ? 
           <CheckFilled className='circle'/> :
           <CheckEmpty className='checked'/>
         }
       </ReadOption>
-      <ArticleImage href={props.info.url} target='_blank'>
+      <ArticleImage href={props.info.url} target='_blank' data-cy='article-image'>
         {match === 'javascript' && <JS/>}
         {match === 'css' && <CSS/>}
         {match === 'css3' && <CSS/>}
@@ -74,10 +74,10 @@ const Article = (props) => {
         {match === 'vue.js' && <Vue/>}
         {match === 'vue' && <Vue/>}
       </ArticleImage> 
-      <ArticleCreated href={props.info.url} target='_blank'>
+      <ArticleCreated href={props.info.url} target='_blank' data-cy='article-date'>
         <em>Posted on <strong>{createdDate}</strong></em>
       </ArticleCreated>
-      <ArticleHeadline href={props.info.url} target='_blank'>
+      <ArticleHeadline href={props.info.url} target='_blank' data-cy='article-headline'>
         {headline}
       </ArticleHeadline>
     </ArticleWrapper>

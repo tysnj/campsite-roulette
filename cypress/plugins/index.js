@@ -16,18 +16,30 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-const injectDevServer = require('@cypress/react/plugins/react-scripts')
+const webpackPreprocessor = require('@cypress/webpack-preprocessor')
 
-module.exports = (on, config) => {
-  console.log(config) // see everything in here!
+module.exports = (on) => {
+  const options = {
+    webpackOptions: {
+      resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js?$/,
+            exclude: [/node_modules/],
+            use: [{
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
+            }],
+          },
+        ],
+      },
+    }
+  }
 
-  // modify config values
-  config.defaultCommandTimeout = 10000
-  config.baseUrl = 'http://localhost:3000'
-
-  // modify env var value
-  config.env.ENVIRONMENT = 'staging'
-
-  // IMPORTANT return the updated config object
-  return config
-}
+  on('file:preprocessor', webpackPreprocessor(options));
+};

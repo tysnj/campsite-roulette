@@ -25,15 +25,39 @@ then... do unit tests on utilities if possible
 
 
 describe('Home Page', () => {
-  // beforeEach(() => {
-  //   cy.interceptStories()
-  //   // cy.visit('/')
-  // });
-
-it('should intercept the network request', () => {
-  cy.swoopStories()
-  cy.get('main').get('div').get('article').should('have.length', 10)
+  beforeEach(() => {
+    cy.interceptStories()
+    cy.visit('/')
   });
 
-  
+  it('should display an article', () => {
+    cy.get('main').get('div').get('article').should('be.visible')
+  });
+
+  it('should display an article with image', () => {
+    cy.get('[data-cy=article-image]').should('be.visible')
+  });
+
+  it('should display an article with a posted date', () => {
+    cy.get('[data-cy=article-date]').should('be.visible')
+  });
+
+  it('should display an article with a headline', () => {
+    cy.get('[data-cy=article-headline]').should('be.visible')
+  });
+
+  it('should display option to mark as read', () => {
+    cy.get('[data-cy=read-option]').should('be.visible')
+  });
+
+  it('should display option to mark as read', () => {
+    cy.get('[data-cy=read-option]').should('be.visible')
+  });
+
+  it('should have clickable articles with a link', () => {
+    cy.get('[data-cy="1"]').within(() => {
+      cy.get('[data-cy=article-image]').click()
+      .should('have.attr', 'target', '_blank')
+    })
+  });  
 });
