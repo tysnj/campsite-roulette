@@ -20,12 +20,15 @@ export const getSpecificStories = async (url) => {
 }
 
 export const cleanHomeData = (data) => {
-  return filterRelevant(sortStories(cleanStories(combineCurrentHits(data))))
+  return removeDuplicates(filterRelevant(sortStories(cleanStories(combineCurrentHits(data)))))
 }
 
 export const cleanSavedData = (data) => {
-  // console.log(sortStories(cleanStories(combineSpecificHits(data))))
   return sortStories(cleanStories(combineSpecificHits(data)))
+}
+
+const removeDuplicates = (data) => {
+  return data.filter((element, index, arr) => index === arr.findIndex(dup => dup.title === element.title))
 }
 
 const filterRelevant = (data) => {

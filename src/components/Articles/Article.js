@@ -36,7 +36,7 @@ const Article = (props) => {
     if (props.status.includes('read')) {
       handleRead()
     }
-  })
+  }, [])
 
   const handleSave = () => {
     props.saveStory(props.id, match)

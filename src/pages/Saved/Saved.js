@@ -19,11 +19,11 @@ const Saved = (props) => {
     }
   }, []);
 
-  const updateSaved = (id) => {
-    if (!props.saved.includes(id)) {
-      props.setSavedStories([...props.saved, id])
+  const updateSaved = (id, tag) => {
+    if (props.saved.findIndex(story => story.id === id) === -1) {
+      props.setSavedStories([...props.saved, {id: id, tag: tag}])
     } else {
-      props.setSavedStories(props.saved.filter(story => story !== id))
+      props.setSavedStories(props.saved.filter(story => story.id !== id))
     }
   }
 

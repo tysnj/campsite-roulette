@@ -18,7 +18,8 @@ const Home = (props) => {
   }, []);
 
   const updateSaved = (id, tag) => {
-    if (!props.saved.includes(id)) {
+    console.log('imma take one')
+    if (props.saved.findIndex(story => story.id === id) === -1) {
       props.setSavedStories([...props.saved, {id: id, tag: tag}])
     } else {
       props.setSavedStories(props.saved.filter(story => story.id !== id))
@@ -42,18 +43,18 @@ const Home = (props) => {
 
   const getStoryState = (id) => {
     let status = []
-    if (props.save === undefined) {
+    if (props.saved === undefined) {
       return
     }
-    if (props.saved.includes(id)) {
+    if (props.saved.findIndex(story => story.id === id) !== -1) {
       status.push('saved');
     }
-    if (props.read.includes(id)) {
-      status.push('read');
-    }
-    if (props.opened.includes(id)) {
-      status.push('opened');
-    }
+     if (props.read.findIndex(story => story.id === id) !== -1) {
+       status.push('read');
+     }
+     if (props.opened.findIndex(story => story.id === id) !== -1) {
+       status.push('opened');
+     }
     return status;
   }
   
