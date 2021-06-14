@@ -1,6 +1,7 @@
 {
-  "output.smartScroll.enabled": false,
   "markdown.preview.scrollEditorWithPreview": false,
   "editor.scrollBeyondLastLine": false,
-  "markdown.preview.scrollPreviewWithEditor": false
+  "markdown.preview.scrollPreviewWithEditor": false,
+  "editor.smoothScrolling": true,
+  "output.smartScroll.enabled": false
 }

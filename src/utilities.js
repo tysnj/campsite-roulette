@@ -23,7 +23,7 @@ export const cleanHomeData = (data) => {
   return removeDuplicates(filterRelevant(sortStories(cleanStories(combineCurrentHits(data)))))
 }
 
-export const cleanSavedData = (data) => {
+export const cleanFilteredData = (data) => {
   return sortStories(cleanStories(combineSpecificHits(data)))
 }
 

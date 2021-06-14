@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { getSpecificStories, cleanSavedData } from '../../utilities';
+import { getSpecificStories, cleanFilteredData } from '../../utilities';
 import Error from '../ErrorDisplay';
 import PlaceHolder from '../PlaceHolder';
 import { Article } from '../../components'
@@ -14,14 +14,24 @@ const Saved = (props) => {
   useEffect(() => {
     if (props.saved.length) {
       getSavedStories.current()
-       .then(data => setSavedStories(cleanSavedData(data)))
+       .then(data => setSavedStories(cleanFilteredData(data)))
        .catch(error => setError(error.message))
     }
   }, []);
 
-  const updateSaved = (id, tag) => {
+  getSavedStories.current = async () => {
+    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
+    let attributes = '&numericFilters=created_at_i='
+    return await Promise.all(
+      props.saved.map(story => getSpecificStories(requestURL + story.tag + attributes + story.id))
+    )
+  };
+
+  const updateSaved = (id, tag, status) => {
     if (props.saved.findIndex(story => story.id === id) === -1) {
       props.setSavedStories([...props.saved, {id: id, tag: tag}])
+    } else if (props.saved.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setSavedStories([...props.saved])
     } else {
       props.setSavedStories(props.saved.filter(story => story.id !== id))
     }
@@ -44,29 +54,21 @@ const Saved = (props) => {
 
   const getStoryState = (id) => {
     let status = []
-    if (props.save === undefined) {
+    if (props.saved === undefined) {
       return
     }
-    if (props.saved.includes(id)) {
+    if (props.saved.findIndex(story => story.id === id) !== -1) {
       status.push('saved');
     }
-    if (props.read.includes(id)) {
-      status.push('read');
-    }
-    if (props.opened.includes(id)) {
-      status.push('opened');
-    }
+     if (props.read.findIndex(story => story.id === id) !== -1) {
+       status.push('read');
+     }
+     if (props.opened.findIndex(story => story.id === id) !== -1) {
+       status.push('opened');
+     }
     return status;
   }
   
-  getSavedStories.current = async () => {
-    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
-    let attributes = '&numericFilters=created_at_i='
-    return await Promise.all(
-      props.saved.map(story => getSpecificStories(requestURL + story.tag + attributes + story.id))
-    )
-  };
-
   return (
     <SavedContainer>
       {!props.saved.length && !error && <h1>No saved stories!</h1>}
