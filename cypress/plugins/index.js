@@ -16,8 +16,18 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+const injectDevServer = require('@cypress/react/plugins/react-scripts')
+
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-  
+  console.log(config) // see everything in here!
+
+  // modify config values
+  config.defaultCommandTimeout = 10000
+  config.baseUrl = 'http://localhost:3000'
+
+  // modify env var value
+  config.env.ENVIRONMENT = 'staging'
+
+  // IMPORTANT return the updated config object
+  return config
 }

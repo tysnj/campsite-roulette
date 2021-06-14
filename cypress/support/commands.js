@@ -1,5 +1,4 @@
-// import Cypress from "cypress"
-// import {jsData, vueData, angularData, reactData, htmlData, cssData, sassData} from '../fixtures/stories_data'
+import {jsData, vueData, angularData, reactData, htmlData, cssData, sassData} from '../fixtures/stories_data'
 
 const jsEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=javascript&tags=story"
 const vueEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=Vue.js&tags=story"
@@ -9,10 +8,11 @@ const cssEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=CSS3&tags
 const htmlEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=HTML5&tags=story"
 const sassEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query= Sass&tags=story"
 
+// eslint-disable-next-line no-undef
 Cypress.Commands.add('interceptStories', () => {
   cy.fixture('js_stories.json')
     .then(data => {
-      cy.intercept('GET', jsEndpoint, {
+      cy.intercept(jsEndpoint, {
         statusCode: 201,
         delay: 100,
         result: data
@@ -20,7 +20,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('vue_stories.json')
     .then(data => {
-      cy.intercept('GET', vueEndpoint, {
+      cy.intercept(vueEndpoint, {
         statusCode: 201,
         delay: 100,
         result: data
@@ -28,7 +28,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('angular_stories.json')
     .then(data => {
-      cy.intercept('GET', angularEndpoint, {
+      cy.intercept(angularEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
@@ -36,7 +36,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('react_stories.json')
     .then(data => {
-      cy.intercept('GET', reactEndpoint, {
+      cy.intercept(reactEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
@@ -44,7 +44,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('css_stories.json')
     .then(data => {
-      cy.intercept('GET', cssEndpoint, {
+      cy.intercept(cssEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
@@ -52,7 +52,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('html_stories.json')
     .then(data => {
-      cy.intercept('GET', htmlEndpoint, {
+      cy.intercept(htmlEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
@@ -60,7 +60,7 @@ Cypress.Commands.add('interceptStories', () => {
     })
   cy.fixture('sass_stories.json')
     .then(data => {
-      cy.intercept('GET', sassEndpoint, {
+      cy.intercept(sassEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
@@ -68,27 +68,15 @@ Cypress.Commands.add('interceptStories', () => {
     })  
   })
   
-  // cy.fixture('js_stories.json').as('jsData')
-  // cy.fixture('vue_stories.json').as('vueData')
-  // cy.fixture('angular_stories.json').as('angularData')
-  // cy.fixture('react_stories.json').as('reactData')
-  // cy.fixture('html_stories.json').as('htmlData')
-  // cy.fixture('css_stories.json').as('cssData')
-  // cy.fixture('sass_stories.json').as('sassData')
-  
-  // cy.server();
-  // cy.route({
-    //     method: "GET",
-    //     url: jsEndpoint
-    // }).as("getJS");
-    // cy.wait("@getJS", {timeout: 15000});
-    // cy.visit("/");
+Cypress.Commands.add('swoopStories', () => { 
+  cy.intercept(jsEndpoint, jsData).as('getJS')
+  cy.intercept(vueEndpoint, vueData).as('getVue')
+  cy.intercept(angularEndpoint, angularData).as('getAngular')
+  cy.intercept(reactEndpoint, reactData).as('getReact')
+  cy.intercept(htmlEndpoint, htmlData).as('getHtml')
+  cy.intercept(cssEndpoint, cssData).as('getCss')
+  cy.intercept(sassEndpoint, sassData).as('getSass')
+  cy.wait(['@getJS', '@getVue', '@getAngular', '@getReact', '@getHtml', '@getCss', '@getSass'], {timeout: 35000})
+  .visit('http://localhost:3000/')
+})
 
-
-    //   cy.intercept('GET', jsEndpoint, jsData).as('getJS')
-    //   cy.intercept('GET', vueEndpoint, vueData).as('getVue')
-    //   cy.intercept('GET', angularEndpoint, angularData).as('getAngular')
-    //   cy.intercept('GET', reactEndpoint, reactData).as('getReact')
-    //   cy.intercept('GET', htmlEndpoint, htmlData).as('getHtml')
-    //   cy.intercept('GET', cssEndpoint, cssData).as('getCss')
-    //   cy.intercept('GET', sassEndpoint, sassData).as('getSass')

@@ -24,30 +24,16 @@ then... do unit tests on utilities if possible
 */
 
 
-describe('The Test', () => {
-  beforeEach(() => {
-    cy.interceptStories()
+describe('Home Page', () => {
+  // beforeEach(() => {
+  //   cy.interceptStories()
+  //   // cy.visit('/')
+  // });
+
+it('should intercept the network request', () => {
+  cy.swoopStories()
+  cy.get('main').get('div').get('article').should('have.length', 10)
   });
 
-  it.only('should intercept the network request', () => {
-    cy.wait('@getStubbed')
-      .its('response.statusCode')
-      .should('eq', 200)
-    });
-
-   it('should provide stubbed data', () => {
-    cy.wait('@getStubbed')
-    // cy.get('.movies-container')
-    // .get('.card')
-    // .should('have.length', 8)
-    // .should('be.visible')
-    }); 
-});
-
-
-describe('Home Page Loading', () => { 
-  beforeEach(() => {
-    cy.interceptStories()
-    cy.wait('@getStubbed')
-  });
+  
 });
