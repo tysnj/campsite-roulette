@@ -1,25 +1,50 @@
 import styled from 'styled-components';
-//import { Container } from '../../globalStyles';
-import { Container } from '../../globalStyles';
-
-import { 
-  IoLogoReact,
-  IoLogoVue
-} from 'react-icons/io5';
+import { BsFillBookmarkFill, BsBookmark } from 'react-icons/bs';
+// import { FaRegCheckCircle, FaRegCircle } from 'react-icons/fa';
+import { IoLogoReact, IoLogoVue} from 'react-icons/io5';
 import { 
   IoLogoJavascript,
   IoLogoHtml5,
   IoLogoCss3,
   IoLogoSass,
   IoLogoAngular,
- } from 'react-icons/io';
+  IoIosCheckmarkCircleOutline,
+  IoIosCheckmarkCircle
+} from 'react-icons/io';
 
- const logo = `
+const icon = `
   width: 100%;
   height: 100%;
-   `
- 
+`
+
+const options = `
+  position: absolute;
+  z-index: 5;
+  color: #111623;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: crosshair;
+  }
+`
+const link = `
+  text-decoration: none;
+  color: #111623;
+
+  &:visited {
+    text-decoration: none;
+    color: orange;
+  }
+`;
+
 export const ArticleWrapper = styled.article`
+  position: static;
+  z-index: 1;
   box-sizing: border-box;
   transform: scale(.9);
   width: 300px;
@@ -34,7 +59,9 @@ export const ArticleWrapper = styled.article`
   }
 `;
 
-export const ArticleImage = styled(Container)`
+export const ArticleImage = styled.a`
+  position: absolute;
+  z-index: 2;
   width: 100%;
   height:40%;
   background: #fff;
@@ -46,14 +73,50 @@ export const ArticleImage = styled(Container)`
   border-radius: 6px;
   box-shadow:  5px 5px 10px #5E6E8C,
               -5px -5px 10px #96B7E5;
+  padding: 0;
+  margin: 0;
+  ${link}
 `;
-export const ArticleCreated = styled(Container)`
+
+export const SaveOption = styled.span`
+ ${options}
+ top: 4px;
+ left: 3px;
+`;
+
+export const ReadOption = styled.span`
+ ${options}
+ top: 4px;
+ right: 3px;
+`;
+
+export const BookmarkEmpty = styled(BsBookmark)`
+ ${icon}
+`
+
+export const BookmarkFilled = styled(BsFillBookmarkFill)`
+ ${icon}
+`
+
+export const CheckEmpty = styled(IoIosCheckmarkCircleOutline)`
+ ${icon}
+`
+
+export const CheckFilled = styled(IoIosCheckmarkCircle)`
+ ${icon}
+`
+
+export const ArticleCreated = styled.a`
   height: 10%;
   width: 100%;
   padding: 1em 0.1em;
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  ${link}
 `;
 
-export const ArticleHeadline = styled(Container)`
+export const ArticleHeadline = styled.a`
   height:50%;
   align-items: center;
   justify-content: center;
@@ -61,40 +124,44 @@ export const ArticleHeadline = styled(Container)`
   padding: 1em 0.1em;
   font-size:  1.5em;
   font-weight: bolder;
-  color: #101522;
+  color: #111623;
+  position: relative;
+  z-index: 2;
+  top: 60%;
+  text-decoration: none;
 `;
 
 export const JS = styled(IoLogoJavascript)`
-  ${logo}
+  ${icon}
   color: #f0db4f;
 `;
 
 export const CSS = styled(IoLogoCss3)`
-  ${logo}
+  ${icon}
   color: #254BDD;
 `;
 
 export const HTML = styled(IoLogoHtml5)`
-  ${logo}
+  ${icon}
   color: #f16529;
 `;
 
 export const Sass = styled(IoLogoSass)`
-  ${logo}
+  ${icon}
   color: #dd6699;
 `;
 
 export const ReactLogo = styled(IoLogoReact)`
-  ${logo}
+  ${icon}
   color: #61dbfb;
 `;
 
 export const Angular = styled(IoLogoAngular)`
-  ${logo}
+  ${icon}
   color: #b52e31;
 `;
 
 export const Vue = styled(IoLogoVue)`
-  ${logo}
+  ${icon}
   color: #41b883;
 `;

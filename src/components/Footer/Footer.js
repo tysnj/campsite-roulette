@@ -1,6 +1,7 @@
 import React from 'react'
 import { FooterContainer, ExternalLinkContainer } from './Footer.elements'
-function Footer() {
+
+const Footer = () => {
   return (
     <FooterContainer>
       WANT MORE NEWS?

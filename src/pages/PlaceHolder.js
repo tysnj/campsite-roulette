@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '../globalStyles';
 
-function PlaceHolder() {
+const PlaceHolder = () => {
   return (
     <Container className='placeholderContainer'>
       <article className='placeholders'></article>
