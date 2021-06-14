@@ -1,5 +1,5 @@
 describe('Saved Page', () => {
-  it('Should be at the right url', () => {
+  it('Should be at the url /saved', () => {
     cy.visit('/saved')
     cy.url().should('eq', 'http://localhost:3000/saved' )
   })

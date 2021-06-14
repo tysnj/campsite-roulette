@@ -18,7 +18,7 @@ describe('Nav', () => {
     .contains('Read')
   })
 
-  it('Should navigate to home when clicking logo', () => {
+  it('Should navigate to Home when clicking logo', () => {
     cy.get('[data-cy=logo]').click()
     cy.url().should('eq', 'http://localhost:3000/' )
   })
@@ -28,7 +28,7 @@ describe('Nav', () => {
     cy.url().should('eq', 'http://localhost:3000/' )
   })
 
-  it('Should navigate to Saved page when clicking Home', () => {
+  it('Should navigate to Saved page when clicking Saved', () => {
     cy.get('[data-cy=saved-link]').click()
     cy.url().should('eq', 'http://localhost:3000/saved' )
   })
