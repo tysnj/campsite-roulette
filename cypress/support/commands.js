@@ -16,6 +16,7 @@ Cypress.Commands.add('interceptStories', () => {
   cy.fixture('html_stories.json').as('htmlData')
   cy.fixture('css_stories.json').as('cssData')
   cy.fixture('sass_stories.json').as('sassData')
+
   cy.intercept(jsEndpoint,  jsData).as('getJS')
   cy.intercept(vueEndpoint,  vueData).as('getVue')
   cy.intercept(angularEndpoint,  angularData).as('getAngular')

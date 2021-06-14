@@ -14,7 +14,6 @@ const Home = (props) => {
   useEffect(() => {
     getHomeStories.current()
       .then(data => {
-        console.log(data)
         setCurrentStories(cleanHomeData(data))
       })
       .catch(error => setError(error.message))
