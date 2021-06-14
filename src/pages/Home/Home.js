@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Error from '../ErrorDisplay';
 import PlaceHolder from '../PlaceHolder';
 import { Article } from '../../components'
-import { getCurrentStories, cleanData } from '../../utilities';
+import { getCurrentStories, cleanHomeData } from '../../utilities';
 import '../pages.css'
 import { HomeContainer, InfoWrap } from './Home.elements'
 
@@ -13,24 +13,31 @@ const Home = (props) => {
 
   useEffect(() => {
      getHomeStories.current()
-      .then(data => setCurrentStories(cleanData(data)))
+      .then(data => setCurrentStories(cleanHomeData(data)))
       .catch(error => setError(error.message))
   }, []);
 
-  const updateSaved = (id) => {
+  const updateSaved = (id, tag) => {
     if (!props.saved.includes(id)) {
-      props.setSavedStories([...props.saved, id])
+      props.setSavedStories([...props.saved, {id: id, tag: tag}])
     } else {
-      props.setSavedStories(props.saved.filter(story => story !== id))
+      props.setSavedStories(props.saved.filter(story => story.id !== id))
     }
   }
 
   const updateRead = (id) => {
-    props.setReadStories([...props.read, id])
-  }  
+    if (!props.read.includes(id)) {
+      props.setReadStories([...props.read, id])
+    } else {
+      props.setReadStories(props.read.filter(story => story !== id))
+    }  }  
 
   const updateOpened = (id) => {
-    props.setOpenedStories([...props.opened, id])
+    if (!props.opened.includes(id)) {
+      props.setOpenedStories([...props.opened, id])
+    } else {
+      props.setOpenedStories(props.opened.filter(story => story !== id))
+    }  
   }
 
   const getStoryState = (id) => {
