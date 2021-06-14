@@ -1,4 +1,4 @@
-
+// TODO: Add another cleanup function to remove any stories with "reactor"
 export const getCurrentStories = async (url) => {
   return await fetch(url).then(response => {
     if (response.ok) {

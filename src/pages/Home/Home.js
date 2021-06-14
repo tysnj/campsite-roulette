@@ -13,14 +13,16 @@ const Home = (props) => {
 
   useEffect(() => {
     getHomeStories.current()
-      .then(data => setCurrentStories(cleanHomeData(data)))
+      .then(data => {
+        setCurrentStories(cleanHomeData(data))
+      })
       .catch(error => setError(error.message))
   }, []);
 
   getHomeStories.current = async () => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&tags=story'
-    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass']
+    const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass'] // maybe add dart/flutter later on
     return await Promise.all(
       subjects.map(subject => getCurrentStories(requestURL + subject + attributes))
     )
@@ -76,6 +78,7 @@ const Home = (props) => {
         <InfoWrap>
           {currentStories.map((story, i) => 
             <Article
+              cy={i}
               info={story}
               key={i}
               id={story.created_at_i}

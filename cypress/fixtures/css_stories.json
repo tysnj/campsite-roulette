@@ -1,0 +1,30 @@
+[
+  {
+    "hits": [
+      {
+        "created_at": "2021-06-14T12:17:08.000Z",
+        "created_at_i": 1623673028,
+        "objectID": "27501694",
+        "title": "Tiny CSS variables library (alternative to TailwindCSS)",
+        "url": "https://dashvar.com/",
+        "_highlightResult": {
+          "title": {
+            "matchedWords": ["css3"]
+          }
+        }
+      },
+      {
+        "created_at": "2021-06-12T19:15:24.000Z",
+        "created_at_i": 1623525324,
+        "objectID": "27486790",
+        "title": "Show HN: Mess.css – $stdout",
+        "url": "https://www.youtube.com/watch?v=0yXJ4t6Ax1U",
+        "_highlightResult": {
+          "title": {
+            "matchedWords": ["css3"]
+          }
+        }
+      } 
+    ]
+  }
+]
