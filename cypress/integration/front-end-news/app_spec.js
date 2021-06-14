@@ -6,6 +6,7 @@ describe('App', () => {
 
   it('Should display a page with a nav bar', () => {
     cy.get('nav')
+    .contains('Front-End News')
   })
 
 })

@@ -23,26 +23,26 @@ const Navbar = () => {
       <Nav>
         <NavbarContainer>
           <NavLogo to='/'>
-            <NavIcon />
+            <NavIcon data-cy='logo'/>
             Front-End News
           </NavLogo>
-          <MobileIcon onClick={handleClick}>
+          <MobileIcon onClick={handleClick} data-cy='mobile-menu'>
             {click ? <FaTimes /> : <FaBars />}
           </MobileIcon>
           <NavMenu onClick={handleClick} click={click}>
-            <NavItem>
+            <NavItem data-cy='home-link'>
               <NavLinks to='/'>
                 Home
               </NavLinks>
             </NavItem>
 
-            <NavItem>
+            <NavItem data-cy='saved-link'>
               <NavLinks to='/saved'>
                 Saved
               </NavLinks>
             </NavItem>
 
-            <NavItem>
+            <NavItem data-cy='read-link'>
               <NavLinks to='/read'>
                 Read
               </NavLinks>

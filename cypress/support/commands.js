@@ -15,7 +15,7 @@ Cypress.Commands.add('interceptStories', () => {
       cy.intercept('GET', jsEndpoint, {
         statusCode: 201,
         delay: 100,
-        body: data
+        result: data
       })
     })
   cy.fixture('vue_stories.json')
@@ -23,7 +23,7 @@ Cypress.Commands.add('interceptStories', () => {
       cy.intercept('GET', vueEndpoint, {
         statusCode: 201,
         delay: 100,
-        body: data
+        result: data
       })
     })
   cy.fixture('angular_stories.json')
