@@ -1,18 +1,11 @@
 describe('App', () => {
   beforeEach(() => {
-    cy.fixture('stories.json')
-    .then(data => {
-      cy.intercept('GET', 'https://rickandmortyapi.com/api/character', {
-        statusCode: 201,
-        delay: 100,
-        body: data
-      })
-    })
-    cy.visit('http://localhost:3000')
+    cy.interceptStories()
+    cy.visit('/')
   })
 
-  it('Should display a page with a search bar', () => {
-    cy.get('input')
+  it('Should display a page with a nav bar', () => {
+    cy.get('nav')
   })
 
 })
