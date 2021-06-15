@@ -18,6 +18,7 @@ import {
   HTML,
   CSS
 } from './Articles.elements';
+import PropTypes from 'prop-types';
 
 const Article = (props) => {
   const [savedStatus, setSavedStatus] = useState(false);
@@ -86,5 +87,27 @@ const Article = (props) => {
     </ArticleWrapper>
   )
 }
+
+Article.propTypes = {
+  cy: PropTypes.number,
+  info: PropTypes.shape({
+    created_at: PropTypes.string,
+    title: PropTypes.string,
+    url: PropTypes.string,
+    created_at_i: PropTypes.number,
+    objectID: PropTypes.string,
+    _highlightResult: PropTypes.shape(PropTypes.shape({
+      title: PropTypes.shape({
+        matchedWords: PropTypes.arrayOf(PropTypes.string)
+      })
+    }))
+  }),
+  id: PropTypes.number,
+  status: PropTypes.arrayOf(PropTypes.string),
+  saveStory: PropTypes.func,
+  readStory: PropTypes.func,
+  openStory: PropTypes.func
+}
+
 
 export default Article
