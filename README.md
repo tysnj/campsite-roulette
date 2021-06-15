@@ -35,6 +35,7 @@ Simply click an article card to open up the associated link. Within each card, y
 
 ## What's Next
 * Type checking of component properties
+* Utilize local storage so users can come pick up where they left off
 * Incorporate unit testing of helper functions
 * Redesign styling to be responsive for all screen sizes and devices
 * I'll be incorporating keyword filters so users can filter by the various technologies
