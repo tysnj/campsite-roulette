@@ -7,14 +7,14 @@ import '../pages.css'
 import { ReadContainer, InfoWrap } from './Read.elements'
 
 const Read = (props) => {
-  const [readStories, setReadStories] = useState([]);
+  const [readPageStories, setReadPageStories] = useState([]);
   const [error, setError] = useState(null);
   const getReadStories = useRef(() => {});
 
   useEffect(() => {
-    if (props.saved.length) {
+    if (props.read.length) {
       getReadStories.current()
-       .then(data => setReadStories(cleanFilteredData(data)))
+       .then(data => setReadPageStories(cleanFilteredData(data)))
        .catch(error => setError(`Something's gone wrong. Please try again`))
     }
   }, []);
@@ -23,7 +23,7 @@ const Read = (props) => {
     let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&numericFilters=created_at_i='
     return await Promise.all(
-      props.saved.map(story => getSpecificStories(requestURL + story.tag + attributes + story.id))
+      props.read.map(story => getSpecificStories(requestURL + story.tag + attributes + story.id))
     )
   };
 
@@ -37,24 +37,29 @@ const Read = (props) => {
     }
   }
 
-  const updateRead = (id) => {
-    if (!props.read.includes(id)) {
-      props.setReadStories([...props.read, id])
+  const updateRead = (id, tag, status) => {
+    if (props.read.findIndex(story => story.id === id) === -1) {
+      props.setReadStories([...props.read, {id: id, tag: tag}])
+    } else if (props.read.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setReadStories([...props.read])
     } else {
-      props.setReadStories(props.read.filter(story => story !== id))
-    }  }  
+      props.setReadStories(props.read.filter(story => story.id !== id))
+    }
+  } 
 
-  const updateOpened = (id) => {
-    if (!props.opened.includes(id)) {
-      props.setOpenedStories([...props.opened, id])
+  const updateOpened = (id, tag, status) => {
+    if (props.opened.findIndex(story => story.id === id) === -1) {
+      props.setOpenedStories([...props.opened, {id: id, tag: tag}])
+    } else if (props.opened.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setOpenedStories([...props.opened])
     } else {
-      props.setOpenedStories(props.opened.filter(story => story !== id))
-    }  
+      props.setOpenedStories(props.opened.filter(story => story.id !== id))
+    }
   }
 
   const getStoryState = (id) => {
     let status = []
-    if (props.saved === undefined) {
+    if (props.read === undefined) {
       return
     }
     if (props.saved.findIndex(story => story.id === id) !== -1) {
@@ -72,11 +77,11 @@ const Read = (props) => {
   return (
     <ReadContainer>
       {!props.read.length && !error && <h1>No read stories!</h1>}
-      {!!props.read.length && !readStories.length && !error && <PlaceHolder/>}
-      {!props.read.length && !readStories.length && error && <Error error={error}/>}
-      {!!props.read.length && !error && readStories.length &&
+      {!!props.read.length && !readPageStories.length && !error && <PlaceHolder/>}
+      {!props.read.length && !readPageStories.length && error && <Error error={error}/>}
+      {!!props.read.length && !error && readPageStories.length &&
         <InfoWrap>
-          {readStories.map((story, i) => 
+          {readPageStories.map((story, i) => 
             <Article
               info={story}
               key={i}
