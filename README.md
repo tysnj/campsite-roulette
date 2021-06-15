@@ -9,7 +9,7 @@ Simply click an article card to open up the associated link. Within each card, y
 ![GIF showing the app](public/assets/FEN.gif)
 
 
-#### Authro
+#### Author
 [Tyson McNutt](https://github.com/tysnj "Tyson's GitHub")
 
 
