@@ -5,6 +5,7 @@ import { Article } from '../../components'
 import { getCurrentStories, cleanHomeData } from '../../utilities';
 import '../pages.css'
 import { HomeContainer, InfoWrap } from './Home.elements'
+import PropTypes from 'prop-types';
 
 const Home = (props) => {
   const [currentStories, setCurrentStories] = useState([]);
@@ -97,6 +98,27 @@ const Home = (props) => {
       }
     </HomeContainer>
   )
+}
+
+Home.propTypes = {
+  saved: PropTypes.arrayOf(PropTypes.shape({
+    saved: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setSavedStories: PropTypes.func,
+    read: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setReadStories: PropTypes.func,
+    opened: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setOpenedStories: PropTypes.func
+  }))
+
 }
 
 export default Home
