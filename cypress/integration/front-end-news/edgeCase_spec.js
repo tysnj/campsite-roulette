@@ -1,4 +1,8 @@
-describe('Error Handling', () => {
+describe('Error Handling and Page Loading', () => {
+
+  it('Should load placeholders while getting data', () => {
+    cy.get('.placeholderContainer').should('be.visible')
+  });
 
   it('Should be redirected to this page on visiting bad url', () => {
     cy.visit('/foo')
