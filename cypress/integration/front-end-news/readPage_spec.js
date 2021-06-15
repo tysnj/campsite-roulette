@@ -1,10 +1,10 @@
 describe('Read Page', () => {
-  it('Should be at the url /saved', () => {
-    cy.visit('/saved')
-    cy.url().should('eq', 'http://localhost:3000/saved' )
+  it('Should be at the url /read', () => {
+    cy.visit('/read')
+    cy.url().should('eq', 'http://localhost:3000/read' )
   })
   
-    it('Should display that there are no saved stories', () => {
+    it('Should display that there are no read stories', () => {
       cy.interceptStories()
       cy.visit('/')
       cy.wait(2000)
