@@ -49,6 +49,7 @@ describe('Nav', () => {
     cy.get('[data-cy=saved-link]').should('not.be.visible')
     cy.get('[data-cy=read-link]').should('not.be.visible')
     cy.get('[data-cy=mobile-menu]').click()
+    cy.wait(1000)
     cy.get('[data-cy=home-link]').should('be.visible')
     cy.get('[data-cy=saved-link]').should('be.visible')
     cy.get('[data-cy=read-link]').should('be.visible')

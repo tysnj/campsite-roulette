@@ -83,6 +83,7 @@ const Saved = (props) => {
         <InfoWrap>
           {savedPageStories.map((story, i) => 
             <Article
+              cy={i}
               info={story}
               key={i}
               id={story.created_at_i}

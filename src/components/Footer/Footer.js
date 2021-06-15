@@ -1,11 +1,17 @@
 import React from 'react'
-import { FooterContainer, ExternalLinkContainer } from './Footer.elements'
+import { IconContext } from 'react-icons/lib';
+import { FooterContainer, ExternalLinkContainer, ExternalLinkWrapper } from './Footer.elements'
+
 
 const Footer = () => {
   return (
     <FooterContainer>
       WANT MORE NEWS?
-      <ExternalLinkContainer>Click Here</ExternalLinkContainer>
+      <ExternalLinkContainer>
+        <ExternalLinkWrapper href={'https://hn.algolia.com/?q=front-end+technology'} target='_blank' data-cy='footer-link'>
+          Click Here
+        </ExternalLinkWrapper>
+      </ExternalLinkContainer>
     </FooterContainer>
   )
 }
