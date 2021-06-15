@@ -5,6 +5,7 @@ import PlaceHolder from '../PlaceHolder';
 import { Article } from '../../components'
 import '../pages.css'
 import { SavedContainer, InfoWrap } from './Saved.elements'
+import PropTypes from 'prop-types';
 
 const Saved = (props) => {
   const [savedPageStories, setSavedPageStories] = useState([]);
@@ -97,6 +98,27 @@ const Saved = (props) => {
       }
     </SavedContainer>
   )
+}
+
+Saved.propTypes = {
+  saved: PropTypes.arrayOf(PropTypes.shape({
+    saved: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setSavedStories: PropTypes.func,
+    read: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setReadStories: PropTypes.func,
+    opened: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setOpenedStories: PropTypes.func
+  }))
+
 }
 
 export default Saved

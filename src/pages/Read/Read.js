@@ -5,6 +5,7 @@ import PlaceHolder from '../PlaceHolder';
 import { Article } from '../../components'
 import '../pages.css'
 import { ReadContainer, InfoWrap } from './Read.elements'
+import PropTypes from 'prop-types';
 
 const Read = (props) => {
   const [readPageStories, setReadPageStories] = useState([]);
@@ -99,4 +100,24 @@ const Read = (props) => {
   )
 }
 
+Read.propTypes = {
+  saved: PropTypes.arrayOf(PropTypes.shape({
+    saved: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setSavedStories: PropTypes.func,
+    read: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setReadStories: PropTypes.func,
+    opened: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      tag: PropTypes.string
+    })),
+    setOpenedStories: PropTypes.func
+  }))
+
+}
 export default Read
