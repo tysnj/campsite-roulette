@@ -34,7 +34,9 @@ Simply click an article card to open up the associated link. Within each card, y
 
 
 ## What's Next
-* Soon, this app will be made to be fully responsive for all screen sizes and devices
+# Type checking of component properties
+# Incorporate unit testing of helper functions
+* Redesign styling to be responsive for all screen sizes and devices
 * I'll be incorporating keyword filters so users can filter by the various technologies
 * As my breadth of knowledge on the various technologies grows, I plan to add additional keywords to API requests to incorporate more and more technologies
 * Refactor the component tree to be more dynamic, modular, and scalable in page display
