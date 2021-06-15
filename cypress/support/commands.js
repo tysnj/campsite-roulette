@@ -96,3 +96,9 @@ Cypress.Commands.add('saveStory', () => {
     cy.get('[data-cy=save-option]').click({force: true})
   });
 })
+
+Cypress.Commands.add('markStoryRead', () => {
+  cy.get('[data-cy="0"]').within(() => {
+    cy.get('[data-cy=read-option]').click({force: true})
+  });
+})

@@ -15,7 +15,7 @@ const Read = (props) => {
     if (props.saved.length) {
       getReadStories.current()
        .then(data => setReadStories(cleanFilteredData(data)))
-       .catch(error => setError(error.message))
+       .catch(error => setError(`Something's gone wrong. Please try again`))
     }
   }, []);
 
