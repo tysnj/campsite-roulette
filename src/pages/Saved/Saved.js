@@ -7,14 +7,14 @@ import '../pages.css'
 import { SavedContainer, InfoWrap } from './Saved.elements'
 
 const Saved = (props) => {
-  const [savedStories, setSavedStories] = useState([]);
+  const [savedPageStories, setSavedPageStories] = useState([]);
   const [error, setError] = useState(null);
   const getSavedStories = useRef(() => {});
 
   useEffect(() => {
     if (props.saved.length) {
       getSavedStories.current()
-       .then(data => setSavedStories(cleanFilteredData(data)))
+       .then(data => setSavedPageStories(cleanFilteredData(data)))
        .catch(error => setError(`Something's gone wrong. Please try again`))
     }
   }, []);
@@ -37,19 +37,24 @@ const Saved = (props) => {
     }
   }
 
-  const updateRead = (id) => {
-    if (!props.read.includes(id)) {
-      props.setReadStories([...props.read, id])
+  const updateRead = (id, tag, status) => {
+    if (props.read.findIndex(story => story.id === id) === -1) {
+      props.setReadStories([...props.read, {id: id, tag: tag}])
+    } else if (props.read.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setReadStories([...props.read])
     } else {
-      props.setReadStories(props.read.filter(story => story !== id))
-    }  }  
+      props.setReadStories(props.read.filter(story => story.id !== id))
+    }
+  } 
 
-  const updateOpened = (id) => {
-    if (!props.opened.includes(id)) {
-      props.setOpenedStories([...props.opened, id])
+  const updateOpened = (id, tag, status) => {
+    if (props.opened.findIndex(story => story.id === id) === -1) {
+      props.setOpenedStories([...props.opened, {id: id, tag: tag}])
+    } else if (props.opened.findIndex(story => story.id === id) !== -1 && !status) {
+      props.setOpenedStories([...props.opened])
     } else {
-      props.setOpenedStories(props.opened.filter(story => story !== id))
-    }  
+      props.setOpenedStories(props.opened.filter(story => story.id !== id))
+    }
   }
 
   const getStoryState = (id) => {
@@ -72,11 +77,11 @@ const Saved = (props) => {
   return (
     <SavedContainer>
       {!props.saved.length && !error && <h1>No saved stories!</h1>}
-      {!!props.saved.length && !savedStories.length && !error && <PlaceHolder/>}
-      {!props.saved.length && !savedStories.length && error && <Error error={error}/>}
-      {!!props.saved.length && !error && savedStories.length &&
+      {!!props.saved.length && !savedPageStories.length && !error && <PlaceHolder/>}
+      {!props.saved.length && !savedPageStories.length && error && <Error error={error}/>}
+      {!!props.saved.length && !error && savedPageStories.length &&
         <InfoWrap>
-          {savedStories.map((story, i) => 
+          {savedPageStories.map((story, i) => 
             <Article
               info={story}
               key={i}
