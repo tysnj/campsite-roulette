@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Container } from '../../globalStyles';
 
 export const FooterContainer = styled.footer`
   background-color: #111623;
@@ -8,9 +9,12 @@ export const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   width: 100%;
+  color: #fff;
+  position: static;
+  bottom: 0;
 `;
 
-export const ExternalLinkContainer = styled.div`
+export const ExternalLinkContainer = styled(Container)`
   width: 100%;
   max-width: 1000px;
   display: flex;
@@ -20,16 +24,15 @@ export const ExternalLinkContainer = styled.div`
   }
 `;
 
-export const ExternalLinkWrapper = styled.div`
+export const ExternalLinkWrapper = styled.a`
   display: flex;
+  text-decoration: none;
+  color: #fff;
+  
+  &:visited {
+    text-decoration: none;
+  }
   @media screen and (max-width: 820px) {
     flex-direction: column;
   }
 `;
-
-// TODO: 
-//  Logo in Footer On Left
-//  External Link on Right
-//  Style/Add Link Title
-//  Style/Add Link to HN
-//  Add functionality to take to HN

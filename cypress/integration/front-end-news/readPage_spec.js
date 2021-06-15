@@ -18,7 +18,7 @@ describe('Read Page', () => {
     cy.wait(2000)
     cy.markStoryRead()
     cy.get('[data-cy=read-link]').click()
-    cy.wait(2000)
+    cy.wait(2500)
     cy.get('[data-cy=article-image]').should('be.visible')
   });
 });
