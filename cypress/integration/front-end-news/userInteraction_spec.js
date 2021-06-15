@@ -17,7 +17,7 @@ describe('User Interaction', () => {
 
   it('Should allow user to undo mark as read from Home page', () => {
     cy.get('[data-cy="0"]').within(() => {
-      cy.get('[data-cy=save-option]').click({force: true})
+      cy.get('[data-cy=read-option]').click({force: true})
     });
     cy.get('[data-cy=read-link]').click()
     cy.wait(2000)

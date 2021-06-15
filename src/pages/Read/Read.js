@@ -83,6 +83,7 @@ const Read = (props) => {
         <InfoWrap>
           {readPageStories.map((story, i) => 
             <Article
+              cy={i}
               info={story}
               key={i}
               id={story.created_at_i}
