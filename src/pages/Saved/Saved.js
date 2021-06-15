@@ -15,7 +15,7 @@ const Saved = (props) => {
     if (props.saved.length) {
       getSavedStories.current()
        .then(data => setSavedStories(cleanFilteredData(data)))
-       .catch(error => setError(error.message))
+       .catch(error => setError(`Something's gone wrong. Please try again`))
     }
   }, []);
 

@@ -16,7 +16,7 @@ const Home = (props) => {
       .then(data => {
         setCurrentStories(cleanHomeData(data))
       })
-      .catch(error => setError(error.message))
+      .catch(error => setError(`Something's gone wrong. Please try again`))
   }, []);
 
   getHomeStories.current = async () => {
