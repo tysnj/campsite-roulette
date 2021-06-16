@@ -14,14 +14,14 @@ const Home = (props) => {
 
   useEffect(() => {
     getHomeStories.current()
-      .then(data => {
-        setCurrentStories(cleanHomeData(data))
+      .then(data => { setCurrentStories(cleanHomeData(data))
       })
-      .catch(error => setError(`Something's gone wrong. Please try again`))
+      .catch(error => console.log(error))
+        // setError(`Something's gone wrong. Please try again`))
   }, []);
 
   getHomeStories.current = async () => {
-    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
+    let requestURL = 'https://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&tags=story'
     const subjects = ['JavaScript', 'Vue.js', 'AngularJS', 'React', 'CSS3', 'HTML5', 'Sass'] // maybe add dart/flutter later on
     return await Promise.all(

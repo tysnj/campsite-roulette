@@ -21,7 +21,7 @@ const Saved = (props) => {
   }, []);
 
   getSavedStories.current = async () => {
-    let requestURL = 'http://hn.algolia.com/api/v1/search_by_date?query='
+    let requestURL = 'https://hn.algolia.com/api/v1/search_by_date?query='
     let attributes = '&numericFilters=created_at_i='
     return await Promise.all(
       props.saved.map(story => getSpecificStories(requestURL + story.tag + attributes + story.id))

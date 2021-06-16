@@ -1,65 +1,65 @@
 import {jsData, vueData, angularData, reactData, htmlData, cssData, sassData} from '../fixtures/stories_data'
 
-const jsEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=javascript&tags=story"
-const vueEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=Vue.js&tags=story"
-const angularEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=AngularJS&tags=story"
-const reactEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=React&tags=story"
-const cssEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=CSS3&tags=story"
-const htmlEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query=HTML5&tags=story"
-const sassEndpoint = "http://hn.algolia.com/api/v1/search_by_date?query= Sass&tags=story"
+const jsEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=javascript&tags=story"
+const vueEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=Vue.js&tags=story"
+const angularEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=AngularJS&tags=story"
+const reactEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=React&tags=story"
+const cssEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=CSS3&tags=story"
+const htmlEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=HTML5&tags=story"
+const sassEndpoint = "https://hn.algolia.com/api/v1/search_by_date?query=Sass&tags=story"
 
 Cypress.Commands.add('interceptStories', () => {
-  cy.fixture('js_stories.json')
+  cy.fixture('../fixtures/js_response.json')
     .then(data => {
-      cy.intercept(jsEndpoint, {
+      cy.intercept('GET', jsEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('vue_stories.json')
+  cy.fixture('../fixtures/vue_response.json')
     .then(data => {
-      cy.intercept(vueEndpoint, {
+      cy.intercept('GET', vueEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('angular_stories.json')
+  cy.fixture('../fixtures/angular_response.json')
     .then(data => {
-      cy.intercept(angularEndpoint, {
+      cy.intercept('GET', angularEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('react_stories.json')
+  cy.fixture('../fixtures/react_stories.json')
     .then(data => {
-      cy.intercept(reactEndpoint, {
+      cy.intercept('GET', reactEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('css_stories.json')
+  cy.fixture('../fixtures/css_response.json')
     .then(data => {
-      cy.intercept(cssEndpoint, {
+      cy.intercept('GET', cssEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('html_stories.json')
+  cy.fixture('../fixtures/html_stories.json')
     .then(data => {
-      cy.intercept(htmlEndpoint, {
+      cy.intercept('GET', htmlEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
       })
     })
-  cy.fixture('sass_stories.json')
+  cy.fixture('../fixtures/sass_stories.json')
     .then(data => {
-      cy.intercept(sassEndpoint, {
+      cy.intercept('GET', sassEndpoint, {
         statusCode: 201,
         delay: 100,
         body: data
