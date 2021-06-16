@@ -27,6 +27,10 @@ Simply click an article card to open up the associated link. Within each card, y
 3. Run `npm start` to run the program
 
 
+## Goals
+My goal of doing this project is to demonstrate and build upon my foundational knowledge of writing applications in the React framework. While doing so, I set out to build an interactivie multi-page application that is thoroughly tested.
+
+
 ## Wins
 * Learning & incorporating new technologies into a single application
 * Hardened skills in building a multi-page application
