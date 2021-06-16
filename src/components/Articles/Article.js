@@ -96,11 +96,11 @@ Article.propTypes = {
     url: PropTypes.string,
     created_at_i: PropTypes.number,
     objectID: PropTypes.string,
-    _highlightResult: PropTypes.shape(PropTypes.shape({
+    _highlightResult: PropTypes.shape({
       title: PropTypes.shape({
         matchedWords: PropTypes.arrayOf(PropTypes.string)
       })
-    }))
+    })
   }),
   id: PropTypes.number,
   status: PropTypes.arrayOf(PropTypes.string),
