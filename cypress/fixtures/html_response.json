@@ -1,1 +1,62 @@
-{"hits":[{"created_at":"2021-06-16T03:29:06.000Z","title":"Baby's first Rust with extra steps (XPC, launchd, and FFI) – dstancu web","url":"https://dstancu.net/macos/rust/ffi/xpc/ncurses/2021/06/15/rust-xpc-ffi.html","author":"todsacerdoti","points":1,"story_text":null,"comment_text":null,"num_comments":0,"story_id":null,"story_title":null,"story_url":null,"parent_id":null,"created_at_i":1623814146,"_tags":["story","author_todsacerdoti","story_27524571"],"objectID":"27524571","_highlightResult":{"title":{"value":"Baby's first Rust with extra steps (XPC, launchd, and FFI) – dstancu web","matchLevel":"none","matchedWords":[]},"url":{"value":"https://dstancu.net/macos/rust/ffi/xpc/ncurses/2021/06/15/rust-xpc-ffi.\u003cem\u003ehtml\u003c/em\u003e","matchLevel":"full","fullyHighlighted":false,"matchedWords":["html5"]},"author":{"value":"todsacerdoti","matchLevel":"none","matchedWords":[]}}}],"nbHits":266969,"page":0,"nbPages":1000,"hitsPerPage":1,"exhaustiveNbHits":false,"query":"html5","params":"advancedSyntax=true\u0026analytics=true\u0026analyticsTags=backend\u0026hitsPerPage=1\u0026query=html5\u0026tags=story","processingTimeMS":22}
+{
+    "hits":
+    [
+        {
+            "created_at": "2021-06-16T03:29:06.000Z",
+            "title": "ZZZ-Baby's first Rust with extra steps (XPC, launchd, and FFI) – dstancu web",
+            "url": "https://dstancu.net/macos/rust/ffi/xpc/ncurses/2021/06/15/rust-xpc-ffi.html",
+            "author": "todsacerdoti",
+            "points": 1,
+            "story_text": null,
+            "comment_text": null,
+            "num_comments": 0,
+            "story_id": null,
+            "story_title": null,
+            "story_url": null,
+            "parent_id": null,
+            "created_at_i": 1623814146,
+            "_tags":
+            [
+                "story",
+                "author_todsacerdoti",
+                "story_27524571"
+            ],
+            "objectID": "27524571",
+            "_highlightResult":
+            {
+                "title":
+                {
+                    "value": "Baby's first Rust with extra steps (XPC, launchd, and FFI) – dstancu web",
+                    "matchLevel": "none",
+                    "matchedWords":
+                    []
+                },
+                "url":
+                {
+                    "value": "https://dstancu.net/macos/rust/ffi/xpc/ncurses/2021/06/15/rust-xpc-ffi.<em>html</em>",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords":
+                    [
+                        "html5"
+                    ]
+                },
+                "author":
+                {
+                    "value": "todsacerdoti",
+                    "matchLevel": "none",
+                    "matchedWords":
+                    []
+                }
+            }
+        }
+    ],
+    "nbHits": 266969,
+    "page": 0,
+    "nbPages": 1000,
+    "hitsPerPage": 1,
+    "exhaustiveNbHits": false,
+    "query": "html5",
+    "params": "advancedSyntax=true&analytics=true&analyticsTags=backend&hitsPerPage=1&query=html5&tags=story",
+    "processingTimeMS": 22
+}

@@ -1,1 +1,62 @@
-{"hits":[{"created_at":"2021-05-17T13:47:04.000Z","title":"Migrating from AngularJS to React with Web Components","url":"https://medium.com/hash-tech/migrating-from-angular-js-to-react-with-web-components-98d043cc4ea3","author":"todsacerdoti","points":4,"story_text":null,"comment_text":null,"num_comments":0,"story_id":null,"story_title":null,"story_url":null,"parent_id":null,"created_at_i":1621259224,"_tags":["story","author_todsacerdoti","story_27183317"],"objectID":"27183317","_highlightResult":{"title":{"value":"Migrating from \u003cem\u003eAngularJS\u003c/em\u003e to React with Web Components","matchLevel":"full","fullyHighlighted":false,"matchedWords":["angularjs"]},"url":{"value":"https://medium.com/hash-tech/migrating-from-angular-js-to-react-with-web-components-98d043cc4ea3","matchLevel":"none","matchedWords":[]},"author":{"value":"todsacerdoti","matchLevel":"none","matchedWords":[]}}}],"nbHits":2542,"page":0,"nbPages":1000,"hitsPerPage":1,"exhaustiveNbHits":true,"query":"angularjs","params":"advancedSyntax=true\u0026analytics=true\u0026analyticsTags=backend\u0026hitsPerPage=1\u0026query=angularjs\u0026tags=story","processingTimeMS":4}
+{
+    "hits":
+    [
+        {
+            "created_at": "2021-05-17T13:47:04.000Z",
+            "title": "ZZZ-Migrating from AngularJS to React with Web Components",
+            "url": "https://medium.com/hash-tech/migrating-from-angular-js-to-react-with-web-components-98d043cc4ea3",
+            "author": "todsacerdoti",
+            "points": 4,
+            "story_text": null,
+            "comment_text": null,
+            "num_comments": 0,
+            "story_id": null,
+            "story_title": null,
+            "story_url": null,
+            "parent_id": null,
+            "created_at_i": 1621259224,
+            "_tags":
+            [
+                "story",
+                "author_todsacerdoti",
+                "story_27183317"
+            ],
+            "objectID": "27183317",
+            "_highlightResult":
+            {
+                "title":
+                {
+                    "value": "Migrating from <em>AngularJS</em> to React with Web Components",
+                    "matchLevel": "full",
+                    "fullyHighlighted": false,
+                    "matchedWords":
+                    [
+                        "angularjs"
+                    ]
+                },
+                "url":
+                {
+                    "value": "https://medium.com/hash-tech/migrating-from-angular-js-to-react-with-web-components-98d043cc4ea3",
+                    "matchLevel": "none",
+                    "matchedWords":
+                    []
+                },
+                "author":
+                {
+                    "value": "todsacerdoti",
+                    "matchLevel": "none",
+                    "matchedWords":
+                    []
+                }
+            }
+        }
+    ],
+    "nbHits": 2542,
+    "page": 0,
+    "nbPages": 1000,
+    "hitsPerPage": 1,
+    "exhaustiveNbHits": true,
+    "query": "angularjs",
+    "params": "advancedSyntax=true&analytics=true&analyticsTags=backend&hitsPerPage=1&query=angularjs&tags=story",
+    "processingTimeMS": 4
+}
