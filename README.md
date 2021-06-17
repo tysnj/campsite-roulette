@@ -28,7 +28,7 @@ Simply click an article card to open up the associated link. Within each card, y
 
 
 ## Goals
-My goal of doing this project is to demonstrate and build upon my foundational knowledge of writing applications in the React framework. While doing so, I set out to build an interactivie multi-page application that is thoroughly tested.
+My goal of doing this project is to demonstrate and build upon my foundational knowledge in writing applications using the React framework while also incorporating styled components to challenge myself. While doing so, I set out to build an interactivie multi-page application that is thoroughly tested.
 
 
 ## Wins
