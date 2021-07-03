@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: SJUuwWAqCVz1T3Rt7VjCA1pB2e26sk8LsHX8tKVhoqq9gwxwF03MoJFUqgvT7u6JvLfb8qENX5HC0Tw+xjYnoGRWNnyj6DSAWvfK91O4hvNnBaM8B4bSj6iRbH5zobiAdH9tvTf3e9AkrWcaauepIwmOcUDQC3TEeST9vqrSSzZY01IudFHOpQAV4XB85qcaJQ9N/ojlDQK+Vjg25YXq9LDRhdm/7ltNmsEht2rmSgvCoEwPoLR7xe63OBtP0IffzlvBJAeyORMxgTeOfxhBNg/XD0F3lFQTkuAVRc+4BYUkM7cGRV4GtUiMJdqxzpqq89GChmbbqo57r0QNszCwSU5OIUCsCMOF45YtihRKMXlHmdtjBJ4fLFOMIcIWPVvMhrErAk5QQZzGNPHeaW6k/KJ1P66ABiT0OMjGlfjTFYFcvChT0oYEarUiDPi7blCLvHEkbExx8gwqBpehdtXoFCAWnG85W+HBHKRA/YxXTDZq/nWcpezvR7cBja/7SYVazmYKmXJmoLE+fd48g+LKlTOKT8e3jTwneZr+YSqFi9ncRava0NlKGN9gjVJkV2XizuIKsX0Uf8ZrHMUljR0jL09qy/LU+IGD/6yjj4w+k7pLnFs+eVkzbtDW6MCR0aQiOIWEccTTSjXe6Kl9cLQHfPxHHy4WuKx6lAuFQp1DK5c=
+  app: front-end-news
+  skip_cleanup: true
