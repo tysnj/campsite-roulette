@@ -1,5 +1,5 @@
 # Front-End News
-Deployment site: https://front-end-news.herokuapp.com/
+Deployment site: https://front-end-news.surge.sh/
 
 #### Overview
 This application is designed to curate a list of posts/stories/articles related to Front-End technologies. The idea for this came about from interacting with the Hacker News website, as there is a constant flow of information that is hard to keep up with. I felt the UX could be improved with the ability to track your interactions accordingly, so I created this app for users to save articles to read later, or mark them as read if they want to keep track.  This is powered by data from the Hacker News API built on Algolia's search platform.
