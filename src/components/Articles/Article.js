@@ -42,6 +42,7 @@ const Article = (props) => {
   const handleSave = () => {
     setSavedStatus(!savedStatus)
     props.saveStory(props.id, match, savedStatus)
+    window.CommandBar.trackEvent('userSavedStory', {});
   }
 
   const handleRead = () => {
